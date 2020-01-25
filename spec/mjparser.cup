@@ -53,100 +53,267 @@ scan with {:
 	return s;
 :}
 
-
-terminal PROG, OP_LBRACE, OP_RBRACE, OP_SEMI, OP_LPAREN, OP_RPAREN, OP_EQUAL, RETURN, OP_PLUS, OP_COMMA, PRINT, VOID;
-terminal Integer NUM_CONST;
 terminal String IDENT;
-terminal IF, ELSE;
+terminal Integer NUM_CONST;
+terminal Character CHAR_CONST;
+terminal Boolean BOOL_CONST;
+terminal PROG, OP_LBRACE, OP_RBRACE, CONST, OP_SEMI, OP_ASSIGN, OP_COMMA, OP_LSQUARE, OP_RSQUARE, ABSTRACT, CLASS;
+terminal EXTENDS, OP_LPAREN, OP_RPAREN, VOID, IF, FOR, BREAK, CONTINUE, RETURN, READ, PRINT, ELSE;
+terminal INC, DEC, OP_OR, OP_AND, OP_MINUS, OP_DOT, OP_NOT_EQUAL, OP_GREATER, OP_GREATER_EQUAL, OP_LESS, OP_LESS_EQUAL, OP_EQUAL;
+terminal NEW, OP_MUL, OP_DIV, OP_MOD, OP_PLUS; 
 
-nonterminal Program, VarDeclList, MethodDeclList, VarDecl, Type, MethodDecl;
-nonterminal FormPars, StatementList, FormalParamList, FormalParamDecl, Statement;
-nonterminal Designator, Expr, Term, Addop, Factor, ActualPars, ActualParamList;
-nonterminal Matched, Unmatched;
+nonterminal Program, ProgramName, ProgramDeclList, MethodDeclList, MethodDecl;
+nonterminal ConstDeclList, VarDeclList, AbstractClassDecl, ClassDecl, Type, ConstDeclNode, ConstDeclTail;
+nonterminal VarDeclNode, VarDeclTail, ExtendsOption, AbstractClassMethodsOption, AbstractClassMethods, AbstractMethodDecl;
+nonterminal MethodTypeOption, FormParsOption, StatementList, FormPars, Statement, FormParsNode, FormParsTail;
+nonterminal DesignatorStatement, Condition, ElseOption, DesignatorStatementOption, ConditionOption, Expr, Designator;
+nonterminal Assignop, ActPars, CondTerm, ConditionTail, CondFact, CondTermTail, Relop, Term, ExprTail;
+nonterminal Addop, DesignatorTail, ActParsTail, Factor, TermTail, Mulop, ActParsOption;
 
-Program ::= (Program) PROG IDENT VarDeclList OP_LBRACE MethodDeclList OP_RBRACE;
+precedence left ELSE;
 
-VarDeclList ::= (VarDeclarations) VarDeclList VarDecl
+Program ::= (Program) PROG IDENT:programName ProgramDeclList OP_LBRACE MethodDeclList OP_RBRACE;
+
+ProgramDeclList ::= (ProgramDeclConst) ProgramDeclList ConstDeclList
+				|
+				(ProgramDeclVar) ProgramDeclList VarDeclList
+				|
+				(ProgramDeclAbstractClass) ProgramDeclList AbstractClassDecl
+				|
+				(ProgramDeclClass) ProgramDeclList ClassDecl
+				|
+				(NoProgramDecl) /*nothing*/
+				;
+
+MethodDeclList ::= (MethodDeclList) MethodDeclList MethodDecl
+				|
+				(NoMethodDeclList) /*nothing*/
+				;
+				
+ConstDeclList ::= (ConstDeclList) CONST Type ConstDeclNode ConstDeclTail OP_SEMI;
+
+ConstDeclNode ::= (ConstDeclNum) IDENT:constName OP_ASSIGN NUM_CONST:constVal
+				|
+				(ConstDeclChar) IDENT:constName OP_ASSIGN CHAR_CONST:constVal
+				|
+				(ConstDeclBool) IDENT:constName OP_ASSIGN BOOL_CONST:constVal
+				;
+				
+ConstDeclTail ::= (ConstDeclTail) ConstDeclTail OP_COMMA ConstDeclNode
+				|
+				(NoConstDeclTail) /* nothing */
+				;
+				
+VarDeclList ::= (VarDeclList) Type VarDeclNode VarDeclTail OP_SEMI;
+
+VarDeclNode ::= (VarDeclNode) IDENT:varName
+				|
+				(VarDeclNodeArray) IDENT:varName OP_LSQUARE OP_RSQUARE
+				;
+				
+VarDeclTail ::= (VarDeclTail) VarDeclTail OP_COMMA VarDeclNode
 			|
-			(NoVarDecl) /* epsilon */
+			(NoVarDeclTail) /* nothing */
 			;
-
-VarDecl ::= (VarDecl) Type:varType IDENT:varName OP_SEMI;
-
+			
 Type ::= (Type) IDENT:typeName;
 
-MethodDeclList ::= (MethodDeclarations) MethodDeclList MethodDecl
-				|
-				(NoMethodDecl) /* epsilon */
-				;
-				
-MethodDecl ::= (MethodDecl) Type:retType IDENT:methName OP_LPAREN FormPars OP_RPAREN VarDeclList OP_LBRACE StatementList OP_RBRACE;
+AbstractClassDecl ::= (AbstractClassDecl) ABSTRACT CLASS IDENT ExtendsOption OP_LBRACE VarDeclList AbstractClassMethodsOption OP_RBRACE;
 
-
-FormPars ::= (FormParams) FormalParamList
-		  |
-		  (NoFormParam) /* epsilon */
-		  ;
-		  
-FormalParamList ::= (FormalParamDecls) FormalParamList OP_COMMA FormalParamDecl
-				|
-				(SingleFormalParamDecl) FormalParamDecl
-				;
-
-StatementList ::= (Statements) StatementList Statement
-				|
-				(NoStmt) /* epsilon */
-				;
-				
-Statement ::= (MatchedStmt) Matched
-		   |
-		   (UnmatchedStmt) Unmatched
-		   ; 
-
-Unmatched ::= (UnmatchedIf) IF Expr Statement
-		 	|
-		 	(UnmatchedIfElse) IF Expr Matched ELSE Unmatched
-		 	;
-		 
-
-Matched ::= (Assignment) Designator:dest OP_EQUAL Expr:e OP_SEMI
-		   |
-		   (ErrorStmt) error OP_SEMI:l
-		   {: parser.report_error("Izvrsen oporavak do ; u liniji " + lleft, null);  :}
-		   |
-		   (PrintStmt) PRINT OP_LPAREN Expr OP_RPAREN OP_SEMI
-		   |
-		   (ReturnExpr) RETURN Expr:t OP_SEMI
-		   |
-		   (ReturnNoExpr) RETURN OP_SEMI
-		   |
-		   (MatchedStatement) IF Expr Matched ELSE Matched
-		   ;
+ExtendsOption ::= (ExtendsOption) EXTENDS Type
+			|
+			(NoExtendsOption) /* nothing */
+			;
 			
-Expr ::= (AddExpr) Expr:te Addop Term:t
-	 |
-	 (TermExpr) Term:t
-	 ;
+AbstractClassMethodsOption ::= (AbstractClassMethodsOption) OP_LBRACE AbstractClassMethods OP_RBRACE
+							|
+							(NoAbstractClassMethodsOptions) /* nothing */
+							;
+							
+AbstractClassMethods ::= (AbstractClassMethodsMethod) AbstractClassMethods MethodDecl
+						|
+						(AbstractClassMethodsAbstractMethod) AbstractClassMethods AbstractMethodDecl
+						|
+						(NoAbstractClassMethods) /* nothing */
+						;
+						
+MethodDecl ::= (MethodDecl) MethodTypeOption IDENT OP_LPAREN FormParsOption OP_RPAREN VarDeclList OP_LBRACE StatementList OP_RBRACE;
 
-Term ::= (Term) Factor:t;
+MethodTypeOption ::= (MethodType) Type
+				|
+				(VoidMethod) VOID
+				;
+				
+FormParsOption ::= (FormParsOption) FormPars
+				|
+				(NoFormPars) /* nothing */
+				;
+				
+StatementList ::= (StatementList) StatementList Statement
+				|
+				(NoStatementList) /* nothing */
+				;
 
-Factor ::= (Const) NUM_CONST
+AbstractMethodDecl ::= (AbstractMethodDecl) ABSTRACT MethodTypeOption IDENT OP_LPAREN FormParsOption OP_RPAREN OP_SEMI;
+
+FormPars ::= (FormPars) FormParsNode FormParsTail;
+
+FormParsNode ::= (FormParsNode) Type IDENT:paramName
+			|
+			(FormParsNodeArray) Type IDENT:parName OP_LSQUARE OP_RSQUARE
+			;
+			
+FormParsTail ::= (FormParsTail) FormParsTail OP_COMMA FormParsNode
+			|
+			(NoFormParsTail) /* nothing */
+			;
+			
+ClassDecl ::= (ClassDeclNoMethods) CLASS IDENT:className ExtendsOption OP_LBRACE VarDeclList OP_RBRACE
+			|
+			(ClassDeclMethods) CLASS IDENT:className ExtendsOption 	OP_LBRACE VarDeclList OP_LBRACE MethodDeclList OP_RBRACE OP_RBRACE
+			;
+			
+Statement ::= (DesignatorStatement) DesignatorStatement OP_SEMI
+			|
+			(IfStatement) IF OP_LPAREN Condition OP_RPAREN Statement
+			|
+			(IfElseStatement) IF OP_LPAREN Condition OP_RPAREN Statement ELSE Statement
+			|
+			(ForStatement) FOR OP_LPAREN DesignatorStatementOption OP_SEMI ConditionOption OP_SEMI DesignatorStatementOption OP_RPAREN Statement
+			|	
+			(BreakStatement) BREAK OP_SEMI
+			|
+			(ContinueStatement) CONTINUE OP_SEMI
+			|
+			(ReturnStatement) RETURN OP_SEMI
+			|	
+			(ReturnExprStatement) RETURN Expr OP_SEMI
+			|
+			(ReadStatement) READ OP_LPAREN Designator OP_RPAREN OP_SEMI
+			|
+			(PrintStatement) PRINT OP_LPAREN Expr OP_RPAREN OP_SEMI
+			|
+			(PrintNumStatement) PRINT OP_LPAREN Expr OP_COMMA NUM_CONST OP_RPAREN OP_SEMI
+			|
+			(StatementStatement) OP_LBRACE StatementList  OP_RBRACE
+			;
+
+DesignatorStatement ::= (DesignatorStatementAssignop) Designator Assignop Expr
+					|
+					(DesignatorStatementActPars) Designator OP_LPAREN ActPars OP_RPAREN
+					|
+					(DesignatorStatementNoActPars) Designator OP_LPAREN OP_RPAREN
+					|
+					(DesignatorStatementInc) Designator INC
+					|
+					(DesignatorStatementDec) Designator DEC
+					;	
+					
+Condition ::= (Condition) CondTerm ConditionTail;	
+
+ConditionTail ::= (ConditionTail) ConditionTail OP_OR CondTerm
+				|
+				(NoConditionTail) /* nothing */
+				;
+				
+CondTerm ::= (CondTerm) CondFact CondTermTail;	
+
+CondTermTail ::= (CondTermTail) CondTermTail OP_AND CondFact
+				|
+				(NoCondTermTail) /* nothing */
+				;
+				
+CondFact ::= (CondFact) Expr
 		|
-		(Var) Designator:d
-		| 
-		(FuncCall) Designator:func OP_LPAREN ActualPars OP_RPAREN
+		(CondFactRelop) Expr Relop Expr
 		;
 		
-ActualPars ::= (Actuals) ActualParamList
-			|
-			(NoActuals) /* epsilon */
-			;
-		
-ActualParamList ::= (ActualParams) ActualParamList OP_COMMA Expr
+DesignatorStatementOption ::= (DesignatorStatementOption) DesignatorStatement
+						|
+						(NoDesignatorStatementOption) /* nothing */
+						;
+						
+ConditionOption ::= (ConditionOption) Condition
 				|
-				(ActualParam) Expr
+				(NoConditionOption) /* nothing */
 				;
 				
-Designator ::= (Designator) IDENT:name;
+Expr ::= (Expr) Term ExprTail
+		|
+		(ExprMinus) OP_MINUS Term ExprTail
+		;
+		
+ExprTail ::= (ExprTail) ExprTail Addop Term
+			|
+			(NoExprTail) /* nothing */
+			;
+			
+Designator ::= (Designator) IDENT:designatorName DesignatorTail;
 
-Addop ::= (Addop) OP_PLUS;
+DesignatorTail ::= (DesignatorTailIdent) DesignatorTail OP_DOT IDENT
+					|
+					(DesignatorTailArray) DesignatorTail OP_LSQUARE Expr OP_RSQUARE
+					|
+					(NoDesignatorTail) /* nothing */
+					;
+					
+Assignop ::= (Assignop) OP_ASSIGN;
+
+ActPars ::= (ActPars) Expr ActParsTail;
+
+ActParsTail ::= (ActParsTail) ActParsTail OP_COMMA Expr
+			|
+			(NoActParsTail) /* nothing */
+			;
+			
+Relop ::= (Equal) OP_EQUAL
+		|
+		(NotEqual) OP_NOT_EQUAL
+		|
+		(Greater) OP_GREATER
+		|
+		(GreaterEqual) OP_GREATER_EQUAL
+		|
+		(Less) OP_LESS
+		|
+		(LessEqual) OP_LESS_EQUAL
+		; 
+		
+Term ::= (Term) Factor TermTail;
+
+TermTail ::= (TermTail) TermTail Mulop Factor
+			|
+			(NoTermTail) /* nothing */
+			;
+
+ActParsOption ::= (ActParsOption) ActPars
+				|
+				(NoActParsOption) /* nothing */
+				;
+				
+Factor ::= (DesignatorActParsFactor) Designator OP_LPAREN ActParsOption	OP_RPAREN
+			|
+			(NumConstFactor) NUM_CONST
+			|
+			(CharConstFactor) CHAR_CONST
+			|
+			(BoolConstFactor) BOOL_CONST
+			|
+			(NewFactor) NEW Type
+			|
+			(NewExprFactor) NEW Type OP_LSQUARE Expr OP_RSQUARE
+			|
+			(ExprFactor) OP_LPAREN Expr OP_RPAREN
+			;			
+
+Mulop ::= (Mul) OP_MUL
+		|
+		(Div) OP_DIV
+		|
+		(Mod) OP_MOD
+		;
+		
+Addop ::= (Plus) OP_PLUS
+		|
+		(Minus) OP_MINUS
+		;	

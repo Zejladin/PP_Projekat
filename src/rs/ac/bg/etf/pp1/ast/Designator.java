@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 25/0/2020 18:52:54
+// 25/0/2020 22:59:26
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,18 +9,29 @@ public class Designator implements SyntaxNode {
 
     private SyntaxNode parent;
     private int line;
-    private String name;
+    private String designatorName;
+    private DesignatorTail DesignatorTail;
 
-    public Designator (String name) {
-        this.name=name;
+    public Designator (String designatorName, DesignatorTail DesignatorTail) {
+        this.designatorName=designatorName;
+        this.DesignatorTail=DesignatorTail;
+        if(DesignatorTail!=null) DesignatorTail.setParent(this);
     }
 
-    public String getName() {
-        return name;
+    public String getDesignatorName() {
+        return designatorName;
     }
 
-    public void setName(String name) {
-        this.name=name;
+    public void setDesignatorName(String designatorName) {
+        this.designatorName=designatorName;
+    }
+
+    public DesignatorTail getDesignatorTail() {
+        return DesignatorTail;
+    }
+
+    public void setDesignatorTail(DesignatorTail DesignatorTail) {
+        this.DesignatorTail=DesignatorTail;
     }
 
     public SyntaxNode getParent() {
@@ -44,13 +55,16 @@ public class Designator implements SyntaxNode {
     }
 
     public void childrenAccept(Visitor visitor) {
+        if(DesignatorTail!=null) DesignatorTail.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
+        if(DesignatorTail!=null) DesignatorTail.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
+        if(DesignatorTail!=null) DesignatorTail.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -59,7 +73,13 @@ public class Designator implements SyntaxNode {
         buffer.append(tab);
         buffer.append("Designator(\n");
 
-        buffer.append(" "+tab+name);
+        buffer.append(" "+tab+designatorName);
+        buffer.append("\n");
+
+        if(DesignatorTail!=null)
+            buffer.append(DesignatorTail.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
         buffer.append("\n");
 
         buffer.append(tab);
