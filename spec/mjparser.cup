@@ -59,7 +59,7 @@ terminal Character CHAR_CONST;
 terminal Boolean BOOL_CONST;
 terminal PROG, OP_LBRACE, OP_RBRACE, CONST, OP_SEMI, OP_ASSIGN, OP_COMMA, OP_LSQUARE, OP_RSQUARE, ABSTRACT, CLASS;
 terminal EXTENDS, OP_LPAREN, OP_RPAREN, VOID, IF, FOR, BREAK, CONTINUE, RETURN, READ, PRINT, ELSE;
-terminal INC, DEC, OP_OR, OP_AND, OP_MINUS, OP_DOT, OP_NOT_EQUAL, OP_GREATER, OP_GREATER_EQUAL, OP_LESS, OP_LESS_EQUAL, OP_EQUAL;
+terminal OP_INC, OP_DEC, OP_OR, OP_AND, OP_MINUS, OP_DOT, OP_NOT_EQUAL, OP_GREATER, OP_GREATER_EQUAL, OP_LESS, OP_LESS_EQUAL, OP_EQUAL;
 terminal NEW, OP_MUL, OP_DIV, OP_MOD, OP_PLUS; 
 
 nonterminal Program, ProgramName, ProgramDeclList, MethodDeclList, MethodDecl;
@@ -173,7 +173,7 @@ ClassDecl ::= (ClassDeclNoMethods) CLASS IDENT:className ExtendsOption OP_LBRACE
 			(ClassDeclMethods) CLASS IDENT:className ExtendsOption 	OP_LBRACE VarDeclList OP_LBRACE MethodDeclList OP_RBRACE OP_RBRACE
 			;
 			
-Statement ::= (DesignatorStatement) DesignatorStatement OP_SEMI
+Statement ::= (DesignatorStatementStatement) DesignatorStatement OP_SEMI
 			|
 			(IfStatement) IF OP_LPAREN Condition OP_RPAREN Statement
 			|
@@ -204,9 +204,9 @@ DesignatorStatement ::= (DesignatorStatementAssignop) Designator Assignop Expr
 					|
 					(DesignatorStatementNoActPars) Designator OP_LPAREN OP_RPAREN
 					|
-					(DesignatorStatementInc) Designator INC
+					(DesignatorStatementInc) Designator OP_INC
 					|
-					(DesignatorStatementDec) Designator DEC
+					(DesignatorStatementDec) Designator OP_DEC
 					;	
 					
 Condition ::= (Condition) CondTerm ConditionTail;	
