@@ -1,0 +1,16 @@
+INFO  18:19:37,966 - Compiling source file: D:\myDesktop\Eclipse vezba\MJCompiler\test\program.mj
+INFO  18:19:37,975 - #2 program
+INFO  18:19:37,975 - #17 MJProgram
+INFO  18:19:37,975 - #17 int
+INFO  18:19:37,975 - #17 x
+INFO  18:19:37,976 - #38 ,
+INFO  18:19:37,976 - #17 y
+INFO  18:19:37,976 - #37 ;
+INFO  18:19:37,976 - #44 {
+INFO  18:19:37,976 - #13 void
+INFO  18:19:37,976 - #17 main
+INFO  18:19:37,976 - #40 (
+INFO  18:19:37,976 - #41 )
+INFO  18:19:37,976 - #44 {
+INFO  18:19:37,976 - #45 }
+INFO  18:19:37,976 - #45 }
