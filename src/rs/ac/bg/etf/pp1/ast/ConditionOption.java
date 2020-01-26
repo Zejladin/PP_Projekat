@@ -1,28 +1,15 @@
 // generated with ast extension for cup
 // version 0.8
-// 25/0/2020 23:25:49
+// 26/0/2020 17:40:36
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class ConditionOption implements SyntaxNode {
+public abstract class ConditionOption implements SyntaxNode {
 
     private SyntaxNode parent;
+
     private int line;
-    private Condition Condition;
-
-    public ConditionOption (Condition Condition) {
-        this.Condition=Condition;
-        if(Condition!=null) Condition.setParent(this);
-    }
-
-    public Condition getCondition() {
-        return Condition;
-    }
-
-    public void setCondition(Condition Condition) {
-        this.Condition=Condition;
-    }
 
     public SyntaxNode getParent() {
         return parent;
@@ -40,37 +27,11 @@ public class ConditionOption implements SyntaxNode {
         this.line=line;
     }
 
-    public void accept(Visitor visitor) {
-        visitor.visit(this);
-    }
+    public abstract void accept(Visitor visitor);
+    public abstract void childrenAccept(Visitor visitor);
+    public abstract void traverseTopDown(Visitor visitor);
+    public abstract void traverseBottomUp(Visitor visitor);
 
-    public void childrenAccept(Visitor visitor) {
-        if(Condition!=null) Condition.accept(visitor);
-    }
-
-    public void traverseTopDown(Visitor visitor) {
-        accept(visitor);
-        if(Condition!=null) Condition.traverseTopDown(visitor);
-    }
-
-    public void traverseBottomUp(Visitor visitor) {
-        if(Condition!=null) Condition.traverseBottomUp(visitor);
-        accept(visitor);
-    }
-
-    public String toString(String tab) {
-        StringBuffer buffer=new StringBuffer();
-        buffer.append(tab);
-        buffer.append("ConditionOption(\n");
-
-        if(Condition!=null)
-            buffer.append(Condition.toString("  "+tab));
-        else
-            buffer.append(tab+"  null");
-        buffer.append("\n");
-
-        buffer.append(tab);
-        buffer.append(") [ConditionOption]");
-        return buffer.toString();
-    }
+    public String toString() { return toString(""); }
+    public abstract String toString(String tab);
 }

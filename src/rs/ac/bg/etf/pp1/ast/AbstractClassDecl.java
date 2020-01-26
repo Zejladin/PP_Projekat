@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 25/0/2020 23:25:49
+// 26/0/2020 17:40:36
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -11,15 +11,15 @@ public class AbstractClassDecl implements SyntaxNode {
     private int line;
     private String I1;
     private ExtendsOption ExtendsOption;
-    private VarDeclList VarDeclList;
+    private MethodVarListOption MethodVarListOption;
     private AbstractClassMethodsOption AbstractClassMethodsOption;
 
-    public AbstractClassDecl (String I1, ExtendsOption ExtendsOption, VarDeclList VarDeclList, AbstractClassMethodsOption AbstractClassMethodsOption) {
+    public AbstractClassDecl (String I1, ExtendsOption ExtendsOption, MethodVarListOption MethodVarListOption, AbstractClassMethodsOption AbstractClassMethodsOption) {
         this.I1=I1;
         this.ExtendsOption=ExtendsOption;
         if(ExtendsOption!=null) ExtendsOption.setParent(this);
-        this.VarDeclList=VarDeclList;
-        if(VarDeclList!=null) VarDeclList.setParent(this);
+        this.MethodVarListOption=MethodVarListOption;
+        if(MethodVarListOption!=null) MethodVarListOption.setParent(this);
         this.AbstractClassMethodsOption=AbstractClassMethodsOption;
         if(AbstractClassMethodsOption!=null) AbstractClassMethodsOption.setParent(this);
     }
@@ -40,12 +40,12 @@ public class AbstractClassDecl implements SyntaxNode {
         this.ExtendsOption=ExtendsOption;
     }
 
-    public VarDeclList getVarDeclList() {
-        return VarDeclList;
+    public MethodVarListOption getMethodVarListOption() {
+        return MethodVarListOption;
     }
 
-    public void setVarDeclList(VarDeclList VarDeclList) {
-        this.VarDeclList=VarDeclList;
+    public void setMethodVarListOption(MethodVarListOption MethodVarListOption) {
+        this.MethodVarListOption=MethodVarListOption;
     }
 
     public AbstractClassMethodsOption getAbstractClassMethodsOption() {
@@ -78,20 +78,20 @@ public class AbstractClassDecl implements SyntaxNode {
 
     public void childrenAccept(Visitor visitor) {
         if(ExtendsOption!=null) ExtendsOption.accept(visitor);
-        if(VarDeclList!=null) VarDeclList.accept(visitor);
+        if(MethodVarListOption!=null) MethodVarListOption.accept(visitor);
         if(AbstractClassMethodsOption!=null) AbstractClassMethodsOption.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(ExtendsOption!=null) ExtendsOption.traverseTopDown(visitor);
-        if(VarDeclList!=null) VarDeclList.traverseTopDown(visitor);
+        if(MethodVarListOption!=null) MethodVarListOption.traverseTopDown(visitor);
         if(AbstractClassMethodsOption!=null) AbstractClassMethodsOption.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(ExtendsOption!=null) ExtendsOption.traverseBottomUp(visitor);
-        if(VarDeclList!=null) VarDeclList.traverseBottomUp(visitor);
+        if(MethodVarListOption!=null) MethodVarListOption.traverseBottomUp(visitor);
         if(AbstractClassMethodsOption!=null) AbstractClassMethodsOption.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -110,8 +110,8 @@ public class AbstractClassDecl implements SyntaxNode {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(VarDeclList!=null)
-            buffer.append(VarDeclList.toString("  "+tab));
+        if(MethodVarListOption!=null)
+            buffer.append(MethodVarListOption.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

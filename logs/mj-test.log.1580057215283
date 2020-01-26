@@ -1,0 +1,85 @@
+INFO  17:46:09,705 - Compiling source file: D:\myDesktop\Eclipse vezba\MJCompiler\test\program.mj
+INFO  17:46:09,730 - #6 program
+INFO  17:46:09,730 - #2 MJProgram
+INFO  17:46:09,731 - #2 int
+INFO  17:46:09,731 - #2 x
+INFO  17:46:09,731 - #10 ;
+INFO  17:46:09,732 - #2 int
+INFO  17:46:09,732 - #2 y
+INFO  17:46:09,732 - #10 ;
+INFO  17:46:09,732 - #7 {
+INFO  17:46:09,732 - #2 int
+INFO  17:46:09,732 - #2 main
+INFO  17:46:09,732 - #18 (
+INFO  17:46:09,732 - #19 )
+INFO  17:46:09,733 - #7 {
+INFO  17:46:09,733 - #25 return
+INFO  17:46:09,733 - #3 2
+INFO  17:46:09,734 - #10 ;
+INFO  17:46:09,734 - #8 }
+INFO  17:46:09,734 - #8 }
+INFO  17:46:09,736 - Program(
+ MJProgram
+  ProgramDeclVar(
+    ProgramDeclVar(
+      NoProgramDecl(
+      ) [NoProgramDecl]
+      VarDeclListt(
+        Type(
+         int
+        ) [Type]
+        VarDeclNodeSingle(
+         x
+        ) [VarDeclNodeSingle]
+        NoVarDeclTail(
+        ) [NoVarDeclTail]
+      ) [VarDeclListt]
+    ) [ProgramDeclVar]
+    VarDeclListt(
+      Type(
+       int
+      ) [Type]
+      VarDeclNodeSingle(
+       y
+      ) [VarDeclNodeSingle]
+      NoVarDeclTail(
+      ) [NoVarDeclTail]
+    ) [VarDeclListt]
+  ) [ProgramDeclVar]
+  ContinueMethodDeclList(
+    NoMethodDeclList(
+    ) [NoMethodDeclList]
+    MethodDecl(
+      MethodType(
+        Type(
+         int
+        ) [Type]
+      ) [MethodType]
+     main
+      NoFormParsOption(
+        NoFormPars(
+        ) [NoFormPars]
+      ) [NoFormParsOption]
+      NoMethodVarListOption(
+      ) [NoMethodVarListOption]
+      ContinueStatementList(
+        NoStatementList(
+        ) [NoStatementList]
+        ReturnExprStatement(
+          ExprTerm(
+            Term(
+              NumConstFactor(
+               2
+              ) [NumConstFactor]
+              NoTermTail(
+              ) [NoTermTail]
+            ) [Term]
+          ) [ExprTerm]
+        ) [ReturnExprStatement]
+      ) [ContinueStatementList]
+    ) [MethodDecl]
+  ) [ContinueMethodDeclList]
+) [Program]
+INFO  17:46:09,736 - ===================================
+INFO  17:46:09,737 -  Print count calls = 0
+INFO  17:46:09,737 -  Deklarisanih promenljivih ima = 0

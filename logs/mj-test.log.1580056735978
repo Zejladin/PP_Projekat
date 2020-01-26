@@ -1,0 +1,213 @@
+INFO  17:32:25,431 - Compiling source file: D:\myDesktop\Eclipse vezba\MJCompiler\test\program.mj
+INFO  17:32:25,458 - #6 program
+INFO  17:32:25,458 - #2 MJProgram
+INFO  17:32:25,458 - #2 int
+INFO  17:32:25,459 - #2 x
+INFO  17:32:25,459 - #10 ;
+INFO  17:32:25,459 - #2 int
+INFO  17:32:25,459 - #2 y
+INFO  17:32:25,460 - #10 ;
+INFO  17:32:25,460 - #7 {
+INFO  17:32:25,460 - #2 int
+INFO  17:32:25,460 - #2 k
+INFO  17:32:25,460 - #18 (
+INFO  17:32:25,460 - #19 )
+INFO  17:32:25,460 - #2 int
+INFO  17:32:25,461 - #2 c
+INFO  17:32:25,461 - #10 ;
+INFO  17:32:25,461 - #7 {
+INFO  17:32:25,461 - #2 c
+INFO  17:32:25,461 - #11 =
+INFO  17:32:25,461 - #3 1
+INFO  17:32:25,462 - #10 ;
+INFO  17:32:25,463 - #25 return
+INFO  17:32:25,463 - #10 ;
+INFO  17:32:25,463 - #8 }
+INFO  17:32:25,463 - #2 int
+INFO  17:32:25,464 - #2 main
+INFO  17:32:25,464 - #18 (
+INFO  17:32:25,464 - #19 )
+INFO  17:32:25,464 - #7 {
+INFO  17:32:25,464 - #2 y
+INFO  17:32:25,464 - #11 =
+INFO  17:32:25,464 - #3 2
+INFO  17:32:25,464 - #10 ;
+INFO  17:32:25,464 - #2 x
+INFO  17:32:25,464 - #11 =
+INFO  17:32:25,465 - #2 y
+INFO  17:32:25,465 - #45 +
+ERROR 17:32:25,465 - 
+Sintaksna greska na liniji 12
+INFO  17:32:25,465 - #3 1
+INFO  17:32:25,465 - #10 ;
+INFO  17:32:25,465 - #2 y
+INFO  17:32:25,465 - #11 =
+INFO  17:32:25,465 - #2 k
+ERROR 17:32:25,465 - DesignatorStatement error na liniji 13
+INFO  17:32:25,466 - #18 (
+INFO  17:32:25,466 - #19 )
+INFO  17:32:25,466 - #10 ;
+INFO  17:32:25,466 - #25 return
+INFO  17:32:25,466 - #10 ;
+INFO  17:32:25,466 - #8 }
+INFO  17:32:25,466 - #8 }
+INFO  17:32:25,467 - Program(
+ MJProgram
+  ProgramDeclVar(
+    ProgramDeclVar(
+      NoProgramDecl(
+      ) [NoProgramDecl]
+      VarDeclListt(
+        Type(
+         int
+        ) [Type]
+        VarDeclNodeSingle(
+         x
+        ) [VarDeclNodeSingle]
+        NoVarDeclTail(
+        ) [NoVarDeclTail]
+      ) [VarDeclListt]
+    ) [ProgramDeclVar]
+    VarDeclListt(
+      Type(
+       int
+      ) [Type]
+      VarDeclNodeSingle(
+       y
+      ) [VarDeclNodeSingle]
+      NoVarDeclTail(
+      ) [NoVarDeclTail]
+    ) [VarDeclListt]
+  ) [ProgramDeclVar]
+  ContinueMethodDeclList(
+    ContinueMethodDeclList(
+      NoMethodDeclList(
+      ) [NoMethodDeclList]
+      MethodDecl(
+        MethodType(
+          Type(
+           int
+          ) [Type]
+        ) [MethodType]
+       k
+        NoFormParsOption(
+          NoFormPars(
+          ) [NoFormPars]
+        ) [NoFormParsOption]
+        YesMethodVarListOption(
+          MethodVarListOne(
+            VarDeclListt(
+              Type(
+               int
+              ) [Type]
+              VarDeclNodeSingle(
+               c
+              ) [VarDeclNodeSingle]
+              NoVarDeclTail(
+              ) [NoVarDeclTail]
+            ) [VarDeclListt]
+          ) [MethodVarListOne]
+        ) [YesMethodVarListOption]
+        ContinueStatementList(
+          ContinueStatementList(
+            NoStatementList(
+            ) [NoStatementList]
+            DesignatorStatementStatement(
+              DesignatorStatementAssignop(
+                DesignatorIdent(
+                 c
+                ) [DesignatorIdent]
+                Assignop(
+                ) [Assignop]
+                ExprTerm(
+                  Term(
+                    NumConstFactor(
+                     1
+                    ) [NumConstFactor]
+                    NoTermTail(
+                    ) [NoTermTail]
+                  ) [Term]
+                ) [ExprTerm]
+              ) [DesignatorStatementAssignop]
+            ) [DesignatorStatementStatement]
+          ) [ContinueStatementList]
+          ReturnStatement(
+          ) [ReturnStatement]
+        ) [ContinueStatementList]
+      ) [MethodDecl]
+    ) [ContinueMethodDeclList]
+    MethodDecl(
+      MethodType(
+        Type(
+         int
+        ) [Type]
+      ) [MethodType]
+     main
+      NoFormParsOption(
+        NoFormPars(
+        ) [NoFormPars]
+      ) [NoFormParsOption]
+      NoMethodVarListOption(
+      ) [NoMethodVarListOption]
+      ContinueStatementList(
+        ContinueStatementList(
+          ContinueStatementList(
+            ContinueStatementList(
+              NoStatementList(
+              ) [NoStatementList]
+              DesignatorStatementStatement(
+                DesignatorStatementAssignop(
+                  DesignatorIdent(
+                   y
+                  ) [DesignatorIdent]
+                  Assignop(
+                  ) [Assignop]
+                  ExprTerm(
+                    Term(
+                      NumConstFactor(
+                       2
+                      ) [NumConstFactor]
+                      NoTermTail(
+                      ) [NoTermTail]
+                    ) [Term]
+                  ) [ExprTerm]
+                ) [DesignatorStatementAssignop]
+              ) [DesignatorStatementStatement]
+            ) [ContinueStatementList]
+            DesignatorStatementStatement(
+              DesignatorStatementError(
+              ) [DesignatorStatementError]
+            ) [DesignatorStatementStatement]
+          ) [ContinueStatementList]
+          DesignatorStatementStatement(
+            DesignatorStatementAssignop(
+              DesignatorIdent(
+               y
+              ) [DesignatorIdent]
+              Assignop(
+              ) [Assignop]
+              ExprTerm(
+                Term(
+                  DesignatorActParsFactor(
+                    DesignatorIdent(
+                     k
+                    ) [DesignatorIdent]
+                    NoActParsOption(
+                    ) [NoActParsOption]
+                  ) [DesignatorActParsFactor]
+                  NoTermTail(
+                  ) [NoTermTail]
+                ) [Term]
+              ) [ExprTerm]
+            ) [DesignatorStatementAssignop]
+          ) [DesignatorStatementStatement]
+        ) [ContinueStatementList]
+        ReturnStatement(
+        ) [ReturnStatement]
+      ) [ContinueStatementList]
+    ) [MethodDecl]
+  ) [ContinueMethodDeclList]
+) [Program]
+INFO  17:32:25,467 - ===================================
+INFO  17:32:25,469 -  Print count calls = 0
+INFO  17:32:25,469 -  Deklarisanih promenljivih ima = 0

@@ -1,0 +1,43 @@
+INFO  16:52:14,177 - Compiling source file: D:\myDesktop\Eclipse vezba\MJCompiler\test\program.mj
+INFO  16:52:14,201 - #6 program
+INFO  16:52:14,202 - #2 MJProgram
+INFO  16:52:14,202 - #2 int
+INFO  16:52:14,202 - #2 x
+INFO  16:52:14,202 - #10 ;
+INFO  16:52:14,203 - #2 int
+INFO  16:52:14,203 - #2 y
+INFO  16:52:14,203 - #10 ;
+INFO  16:52:14,203 - #7 {
+INFO  16:52:14,204 - #2 int
+INFO  16:52:14,204 - #2 k
+INFO  16:52:14,204 - #18 (
+INFO  16:52:14,204 - #19 )
+INFO  16:52:14,204 - #2 int
+INFO  16:52:14,205 - #2 c
+INFO  16:52:14,205 - #10 ;
+INFO  16:52:14,205 - #7 {
+INFO  16:52:14,205 - #2 c
+INFO  16:52:14,205 - #11 =
+INFO  16:52:14,206 - #3 1
+INFO  16:52:14,206 - #10 ;
+INFO  16:52:14,207 - #25 return
+INFO  16:52:14,208 - #10 ;
+INFO  16:52:14,208 - #8 }
+INFO  16:52:14,208 - #2 int
+INFO  16:52:14,209 - #2 main
+INFO  16:52:14,209 - #18 (
+INFO  16:52:14,209 - #19 )
+INFO  16:52:14,209 - #7 {
+INFO  16:52:14,209 - #2 y
+INFO  16:52:14,209 - #11 =
+INFO  16:52:14,209 - #3 2
+INFO  16:52:14,209 - #10 ;
+INFO  16:52:14,209 - #2 x
+INFO  16:52:14,209 - #11 =
+INFO  16:52:14,209 - #3 1
+INFO  16:52:14,210 - #45 +
+INFO  16:52:14,210 - #2 y
+INFO  16:52:14,210 - #10 ;
+ERROR 16:52:14,210 - 
+Sintaksna greska na liniji 12
+ERROR 16:52:14,210 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 12

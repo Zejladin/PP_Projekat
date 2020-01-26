@@ -1,0 +1,28 @@
+INFO  16:48:39,285 - Compiling source file: D:\myDesktop\Eclipse vezba\MJCompiler\test\program.mj
+INFO  16:48:39,368 - #6 program
+INFO  16:48:39,368 - #2 MJProgram
+INFO  16:48:39,368 - #2 int
+INFO  16:48:39,369 - #2 x
+INFO  16:48:39,369 - #10 ;
+INFO  16:48:39,370 - #2 int
+INFO  16:48:39,371 - #2 y
+INFO  16:48:39,371 - #10 ;
+INFO  16:48:39,371 - #7 {
+INFO  16:48:39,371 - #2 int
+INFO  16:48:39,372 - #2 k
+INFO  16:48:39,372 - #18 (
+INFO  16:48:39,372 - #19 )
+INFO  16:48:39,373 - #2 int
+INFO  16:48:39,373 - #2 c
+INFO  16:48:39,373 - #10 ;
+INFO  16:48:39,373 - #7 {
+INFO  16:48:39,374 - #2 c
+INFO  16:48:39,374 - #11 =
+INFO  16:48:39,376 - #3 1
+INFO  16:48:39,377 - #10 ;
+INFO  16:48:39,379 - #25 return
+INFO  16:48:39,379 - #2 c
+INFO  16:48:39,379 - #10 ;
+ERROR 16:48:39,379 - 
+Sintaksna greska na liniji 7
+ERROR 16:48:39,379 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 7
