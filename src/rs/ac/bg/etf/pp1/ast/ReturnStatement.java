@@ -1,13 +1,25 @@
 // generated with ast extension for cup
 // version 0.8
-// 26/0/2020 17:40:36
+// 29/0/2020 18:20:51
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class ReturnStatement extends Statement {
 
-    public ReturnStatement () {
+    private Expr Expr;
+
+    public ReturnStatement (Expr Expr) {
+        this.Expr=Expr;
+        if(Expr!=null) Expr.setParent(this);
+    }
+
+    public Expr getExpr() {
+        return Expr;
+    }
+
+    public void setExpr(Expr Expr) {
+        this.Expr=Expr;
     }
 
     public void accept(Visitor visitor) {
@@ -15,13 +27,16 @@ public class ReturnStatement extends Statement {
     }
 
     public void childrenAccept(Visitor visitor) {
+        if(Expr!=null) Expr.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
+        if(Expr!=null) Expr.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
+        if(Expr!=null) Expr.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -29,6 +44,12 @@ public class ReturnStatement extends Statement {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
         buffer.append("ReturnStatement(\n");
+
+        if(Expr!=null)
+            buffer.append(Expr.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
 
         buffer.append(tab);
         buffer.append(") [ReturnStatement]");

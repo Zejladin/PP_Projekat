@@ -10,12 +10,10 @@ public class RuleVisitor extends VisitorAdaptor{
 	
 	Logger log = Logger.getLogger(getClass());
 
-	public void visit(VarDeclNode vardecl){
-		varDeclCount++;
+	public void visit(Object vardecl){
+		//varDeclCount++;
 	}
 	
-    public void visit(PrintStatement print) {
-		printCallCount++;
-	}
+
 
 }

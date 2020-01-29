@@ -1,28 +1,28 @@
 // generated with ast extension for cup
 // version 0.8
-// 26/0/2020 17:40:36
+// 29/0/2020 18:20:51
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class IfStatement extends Statement {
+public class IfStatement extends CondStatement {
 
-    private Condition Condition;
+    private IfStartMarker IfStartMarker;
     private Statement Statement;
 
-    public IfStatement (Condition Condition, Statement Statement) {
-        this.Condition=Condition;
-        if(Condition!=null) Condition.setParent(this);
+    public IfStatement (IfStartMarker IfStartMarker, Statement Statement) {
+        this.IfStartMarker=IfStartMarker;
+        if(IfStartMarker!=null) IfStartMarker.setParent(this);
         this.Statement=Statement;
         if(Statement!=null) Statement.setParent(this);
     }
 
-    public Condition getCondition() {
-        return Condition;
+    public IfStartMarker getIfStartMarker() {
+        return IfStartMarker;
     }
 
-    public void setCondition(Condition Condition) {
-        this.Condition=Condition;
+    public void setIfStartMarker(IfStartMarker IfStartMarker) {
+        this.IfStartMarker=IfStartMarker;
     }
 
     public Statement getStatement() {
@@ -38,18 +38,18 @@ public class IfStatement extends Statement {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(Condition!=null) Condition.accept(visitor);
+        if(IfStartMarker!=null) IfStartMarker.accept(visitor);
         if(Statement!=null) Statement.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(Condition!=null) Condition.traverseTopDown(visitor);
+        if(IfStartMarker!=null) IfStartMarker.traverseTopDown(visitor);
         if(Statement!=null) Statement.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(Condition!=null) Condition.traverseBottomUp(visitor);
+        if(IfStartMarker!=null) IfStartMarker.traverseBottomUp(visitor);
         if(Statement!=null) Statement.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -59,8 +59,8 @@ public class IfStatement extends Statement {
         buffer.append(tab);
         buffer.append("IfStatement(\n");
 
-        if(Condition!=null)
-            buffer.append(Condition.toString("  "+tab));
+        if(IfStartMarker!=null)
+            buffer.append(IfStartMarker.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

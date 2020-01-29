@@ -1,26 +1,26 @@
 // generated with ast extension for cup
 // version 0.8
-// 26/0/2020 17:40:36
+// 29/0/2020 18:20:51
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class ConstDeclChar extends ConstDeclNode {
+public class ConstDeclChar extends ConstDeclCore {
 
-    private String constName;
+    private String constIdentifier;
     private Character constVal;
 
-    public ConstDeclChar (String constName, Character constVal) {
-        this.constName=constName;
+    public ConstDeclChar (String constIdentifier, Character constVal) {
+        this.constIdentifier=constIdentifier;
         this.constVal=constVal;
     }
 
-    public String getConstName() {
-        return constName;
+    public String getConstIdentifier() {
+        return constIdentifier;
     }
 
-    public void setConstName(String constName) {
-        this.constName=constName;
+    public void setConstIdentifier(String constIdentifier) {
+        this.constIdentifier=constIdentifier;
     }
 
     public Character getConstVal() {
@@ -51,7 +51,7 @@ public class ConstDeclChar extends ConstDeclNode {
         buffer.append(tab);
         buffer.append("ConstDeclChar(\n");
 
-        buffer.append(" "+tab+constName);
+        buffer.append(" "+tab+constIdentifier);
         buffer.append("\n");
 
         buffer.append(" "+tab+constVal);

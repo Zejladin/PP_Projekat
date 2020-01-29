@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 26/0/2020 17:40:36
+// 29/0/2020 18:20:51
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,54 +9,55 @@ public class MethodDecl implements SyntaxNode {
 
     private SyntaxNode parent;
     private int line;
-    private MethodTypeOption MethodTypeOption;
-    private String I2;
-    private FormParsOption FormParsOption;
-    private MethodVarListOption MethodVarListOption;
+    private MethodType MethodType;
+    private MethodName MethodName;
+    private FormalParamsChoice FormalParamsChoice;
+    private VarDeclChoice VarDeclChoice;
     private StatementList StatementList;
 
-    public MethodDecl (MethodTypeOption MethodTypeOption, String I2, FormParsOption FormParsOption, MethodVarListOption MethodVarListOption, StatementList StatementList) {
-        this.MethodTypeOption=MethodTypeOption;
-        if(MethodTypeOption!=null) MethodTypeOption.setParent(this);
-        this.I2=I2;
-        this.FormParsOption=FormParsOption;
-        if(FormParsOption!=null) FormParsOption.setParent(this);
-        this.MethodVarListOption=MethodVarListOption;
-        if(MethodVarListOption!=null) MethodVarListOption.setParent(this);
+    public MethodDecl (MethodType MethodType, MethodName MethodName, FormalParamsChoice FormalParamsChoice, VarDeclChoice VarDeclChoice, StatementList StatementList) {
+        this.MethodType=MethodType;
+        if(MethodType!=null) MethodType.setParent(this);
+        this.MethodName=MethodName;
+        if(MethodName!=null) MethodName.setParent(this);
+        this.FormalParamsChoice=FormalParamsChoice;
+        if(FormalParamsChoice!=null) FormalParamsChoice.setParent(this);
+        this.VarDeclChoice=VarDeclChoice;
+        if(VarDeclChoice!=null) VarDeclChoice.setParent(this);
         this.StatementList=StatementList;
         if(StatementList!=null) StatementList.setParent(this);
     }
 
-    public MethodTypeOption getMethodTypeOption() {
-        return MethodTypeOption;
+    public MethodType getMethodType() {
+        return MethodType;
     }
 
-    public void setMethodTypeOption(MethodTypeOption MethodTypeOption) {
-        this.MethodTypeOption=MethodTypeOption;
+    public void setMethodType(MethodType MethodType) {
+        this.MethodType=MethodType;
     }
 
-    public String getI2() {
-        return I2;
+    public MethodName getMethodName() {
+        return MethodName;
     }
 
-    public void setI2(String I2) {
-        this.I2=I2;
+    public void setMethodName(MethodName MethodName) {
+        this.MethodName=MethodName;
     }
 
-    public FormParsOption getFormParsOption() {
-        return FormParsOption;
+    public FormalParamsChoice getFormalParamsChoice() {
+        return FormalParamsChoice;
     }
 
-    public void setFormParsOption(FormParsOption FormParsOption) {
-        this.FormParsOption=FormParsOption;
+    public void setFormalParamsChoice(FormalParamsChoice FormalParamsChoice) {
+        this.FormalParamsChoice=FormalParamsChoice;
     }
 
-    public MethodVarListOption getMethodVarListOption() {
-        return MethodVarListOption;
+    public VarDeclChoice getVarDeclChoice() {
+        return VarDeclChoice;
     }
 
-    public void setMethodVarListOption(MethodVarListOption MethodVarListOption) {
-        this.MethodVarListOption=MethodVarListOption;
+    public void setVarDeclChoice(VarDeclChoice VarDeclChoice) {
+        this.VarDeclChoice=VarDeclChoice;
     }
 
     public StatementList getStatementList() {
@@ -88,24 +89,27 @@ public class MethodDecl implements SyntaxNode {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(MethodTypeOption!=null) MethodTypeOption.accept(visitor);
-        if(FormParsOption!=null) FormParsOption.accept(visitor);
-        if(MethodVarListOption!=null) MethodVarListOption.accept(visitor);
+        if(MethodType!=null) MethodType.accept(visitor);
+        if(MethodName!=null) MethodName.accept(visitor);
+        if(FormalParamsChoice!=null) FormalParamsChoice.accept(visitor);
+        if(VarDeclChoice!=null) VarDeclChoice.accept(visitor);
         if(StatementList!=null) StatementList.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(MethodTypeOption!=null) MethodTypeOption.traverseTopDown(visitor);
-        if(FormParsOption!=null) FormParsOption.traverseTopDown(visitor);
-        if(MethodVarListOption!=null) MethodVarListOption.traverseTopDown(visitor);
+        if(MethodType!=null) MethodType.traverseTopDown(visitor);
+        if(MethodName!=null) MethodName.traverseTopDown(visitor);
+        if(FormalParamsChoice!=null) FormalParamsChoice.traverseTopDown(visitor);
+        if(VarDeclChoice!=null) VarDeclChoice.traverseTopDown(visitor);
         if(StatementList!=null) StatementList.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(MethodTypeOption!=null) MethodTypeOption.traverseBottomUp(visitor);
-        if(FormParsOption!=null) FormParsOption.traverseBottomUp(visitor);
-        if(MethodVarListOption!=null) MethodVarListOption.traverseBottomUp(visitor);
+        if(MethodType!=null) MethodType.traverseBottomUp(visitor);
+        if(MethodName!=null) MethodName.traverseBottomUp(visitor);
+        if(FormalParamsChoice!=null) FormalParamsChoice.traverseBottomUp(visitor);
+        if(VarDeclChoice!=null) VarDeclChoice.traverseBottomUp(visitor);
         if(StatementList!=null) StatementList.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -115,23 +119,26 @@ public class MethodDecl implements SyntaxNode {
         buffer.append(tab);
         buffer.append("MethodDecl(\n");
 
-        if(MethodTypeOption!=null)
-            buffer.append(MethodTypeOption.toString("  "+tab));
+        if(MethodType!=null)
+            buffer.append(MethodType.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        buffer.append(" "+tab+I2);
-        buffer.append("\n");
-
-        if(FormParsOption!=null)
-            buffer.append(FormParsOption.toString("  "+tab));
+        if(MethodName!=null)
+            buffer.append(MethodName.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(MethodVarListOption!=null)
-            buffer.append(MethodVarListOption.toString("  "+tab));
+        if(FormalParamsChoice!=null)
+            buffer.append(FormalParamsChoice.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        if(VarDeclChoice!=null)
+            buffer.append(VarDeclChoice.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

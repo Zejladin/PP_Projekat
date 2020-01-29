@@ -1,35 +1,24 @@
 // generated with ast extension for cup
 // version 0.8
-// 26/0/2020 17:40:36
+// 29/0/2020 18:20:51
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class ConstDeclBool extends ConstDeclNode {
+public class ConstDeclBool extends ConstDeclCore {
 
-    private String constName;
-    private Boolean constVal;
+    private String constIdentifier;
 
-    public ConstDeclBool (String constName, Boolean constVal) {
-        this.constName=constName;
-        this.constVal=constVal;
-        if(constVal!=null) constVal.setParent(this);
+    public ConstDeclBool (String constIdentifier) {
+        this.constIdentifier=constIdentifier;
     }
 
-    public String getConstName() {
-        return constName;
+    public String getConstIdentifier() {
+        return constIdentifier;
     }
 
-    public void setConstName(String constName) {
-        this.constName=constName;
-    }
-
-    public Boolean getConstVal() {
-        return constVal;
-    }
-
-    public void setConstVal(Boolean constVal) {
-        this.constVal=constVal;
+    public void setConstIdentifier(String constIdentifier) {
+        this.constIdentifier=constIdentifier;
     }
 
     public void accept(Visitor visitor) {
@@ -37,16 +26,13 @@ public class ConstDeclBool extends ConstDeclNode {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(constVal!=null) constVal.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(constVal!=null) constVal.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(constVal!=null) constVal.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -55,13 +41,7 @@ public class ConstDeclBool extends ConstDeclNode {
         buffer.append(tab);
         buffer.append("ConstDeclBool(\n");
 
-        buffer.append(" "+tab+constName);
-        buffer.append("\n");
-
-        if(constVal!=null)
-            buffer.append(constVal.toString("  "+tab));
-        else
-            buffer.append(tab+"  null");
+        buffer.append(" "+tab+constIdentifier);
         buffer.append("\n");
 
         buffer.append(tab);

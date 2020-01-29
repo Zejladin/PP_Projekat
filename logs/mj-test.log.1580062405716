@@ -1,0 +1,75 @@
+INFO  17:53:07,582 - Compiling source file: D:\myDesktop\Eclipse vezba\MJCompiler\test\program.mj
+INFO  17:53:07,608 - #6 program
+INFO  17:53:07,608 - #2 MJProgram
+INFO  17:53:07,608 - #2 int
+INFO  17:53:07,608 - #2 x
+INFO  17:53:07,609 - #10 ;
+INFO  17:53:07,609 - #2 int
+INFO  17:53:07,609 - #2 y
+INFO  17:53:07,609 - #10 ;
+INFO  17:53:07,609 - #7 {
+INFO  17:53:07,609 - #2 int
+INFO  17:53:07,610 - #2 main
+INFO  17:53:07,610 - #18 (
+INFO  17:53:07,610 - #19 )
+INFO  17:53:07,610 - #7 {
+INFO  17:53:07,611 - #25 return
+INFO  17:53:07,611 - #10 ;
+INFO  17:53:07,611 - #8 }
+INFO  17:53:07,611 - #8 }
+INFO  17:53:07,613 - Program(
+ MJProgram
+  ProgramDeclVar(
+    ProgramDeclVar(
+      NoProgramDecl(
+      ) [NoProgramDecl]
+      VarDeclListt(
+        Type(
+         int
+        ) [Type]
+        VarDeclNodeSingle(
+         x
+        ) [VarDeclNodeSingle]
+        NoVarDeclTail(
+        ) [NoVarDeclTail]
+      ) [VarDeclListt]
+    ) [ProgramDeclVar]
+    VarDeclListt(
+      Type(
+       int
+      ) [Type]
+      VarDeclNodeSingle(
+       y
+      ) [VarDeclNodeSingle]
+      NoVarDeclTail(
+      ) [NoVarDeclTail]
+    ) [VarDeclListt]
+  ) [ProgramDeclVar]
+  ContinueMethodDeclList(
+    NoMethodDeclList(
+    ) [NoMethodDeclList]
+    MethodDecl(
+      MethodType(
+        Type(
+         int
+        ) [Type]
+      ) [MethodType]
+     main
+      NoFormParsOption(
+        NoFormPars(
+        ) [NoFormPars]
+      ) [NoFormParsOption]
+      NoMethodVarListOption(
+      ) [NoMethodVarListOption]
+      ContinueStatementList(
+        NoStatementList(
+        ) [NoStatementList]
+        ReturnStatement(
+        ) [ReturnStatement]
+      ) [ContinueStatementList]
+    ) [MethodDecl]
+  ) [ContinueMethodDeclList]
+) [Program]
+INFO  17:53:07,613 - ===================================
+INFO  17:53:07,614 -  Print count calls = 0
+INFO  17:53:07,614 -  Deklarisanih promenljivih ima = 0

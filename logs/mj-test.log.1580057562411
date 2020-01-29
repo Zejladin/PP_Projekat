@@ -1,0 +1,81 @@
+INFO  17:46:55,285 - Compiling source file: D:\myDesktop\Eclipse vezba\MJCompiler\test\program.mj
+INFO  17:46:55,310 - #6 program
+INFO  17:46:55,310 - #2 MJProgram
+INFO  17:46:55,310 - #2 int
+INFO  17:46:55,311 - #2 x
+INFO  17:46:55,311 - #10 ;
+INFO  17:46:55,311 - #2 int
+INFO  17:46:55,312 - #2 y
+INFO  17:46:55,312 - #10 ;
+INFO  17:46:55,312 - #7 {
+INFO  17:46:55,312 - #2 int
+INFO  17:46:55,312 - #2 main
+INFO  17:46:55,312 - #18 (
+INFO  17:46:55,312 - #19 )
+INFO  17:46:55,313 - #7 {
+INFO  17:46:55,313 - #25 return
+INFO  17:46:55,313 - #2 x
+INFO  17:46:55,313 - #10 ;
+ERROR 17:46:55,313 - 
+Sintaksna greska na liniji 7
+INFO  17:46:55,313 - #8 }
+INFO  17:46:55,313 - #8 }
+ERROR 17:46:55,314 - DesignatorStatement error na liniji 9
+INFO  17:46:55,315 - Program(
+ MJProgram
+  ProgramDeclVar(
+    ProgramDeclVar(
+      NoProgramDecl(
+      ) [NoProgramDecl]
+      VarDeclListt(
+        Type(
+         int
+        ) [Type]
+        VarDeclNodeSingle(
+         x
+        ) [VarDeclNodeSingle]
+        NoVarDeclTail(
+        ) [NoVarDeclTail]
+      ) [VarDeclListt]
+    ) [ProgramDeclVar]
+    VarDeclListt(
+      Type(
+       int
+      ) [Type]
+      VarDeclNodeSingle(
+       y
+      ) [VarDeclNodeSingle]
+      NoVarDeclTail(
+      ) [NoVarDeclTail]
+    ) [VarDeclListt]
+  ) [ProgramDeclVar]
+  ContinueMethodDeclList(
+    NoMethodDeclList(
+    ) [NoMethodDeclList]
+    MethodDecl(
+      MethodType(
+        Type(
+         int
+        ) [Type]
+      ) [MethodType]
+     main
+      NoFormParsOption(
+        NoFormPars(
+        ) [NoFormPars]
+      ) [NoFormParsOption]
+      NoMethodVarListOption(
+      ) [NoMethodVarListOption]
+      ContinueStatementList(
+        NoStatementList(
+        ) [NoStatementList]
+        DesignatorStatementStatement(
+          DesignatorStatementError(
+          ) [DesignatorStatementError]
+        ) [DesignatorStatementStatement]
+      ) [ContinueStatementList]
+    ) [MethodDecl]
+  ) [ContinueMethodDeclList]
+) [Program]
+INFO  17:46:55,315 - ===================================
+INFO  17:46:55,317 -  Print count calls = 0
+INFO  17:46:55,317 -  Deklarisanih promenljivih ima = 0

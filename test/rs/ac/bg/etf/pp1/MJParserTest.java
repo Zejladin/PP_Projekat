@@ -14,6 +14,7 @@ import org.apache.log4j.xml.DOMConfigurator;
 
 import rs.ac.bg.etf.pp1.ast.Program;
 import rs.ac.bg.etf.pp1.util.Log4JUtils;
+import rs.etf.pp1.symboltable.Tab;
 
 public class MJParserTest {
 
@@ -36,6 +37,7 @@ public class MJParserTest {
 			
 			MJParser p = new MJParser(lexer);
 	        Symbol s = p.parse();  //pocetak parsiranja
+	        Tab.init();
 	        
 	        Program prog = (Program)(s.value); 
 			// ispis sintaksnog stabla
@@ -43,6 +45,7 @@ public class MJParserTest {
 			log.info("===================================");
 
 			// ispis prepoznatih programskih konstrukcija
+			//SemanticPass v = new SemanticPass();
 			RuleVisitor v = new RuleVisitor();
 			prog.traverseBottomUp(v); 
 	      

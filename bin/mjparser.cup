@@ -1,348 +1,381 @@
 package rs.ac.bg.etf.pp1;
 
 import java_cup.runtime.*;
-import org.apache.log4j.*;
-
-// import java.io.*;
 import rs.ac.bg.etf.pp1.ast.*;
-
+import java.util.logging.Logger;
 
 parser code {:
-	
-	boolean errorDetected = false;
-	
-	Logger log = Logger.getLogger(getClass());
-   
-   
-    // slede redefinisani metodi za prijavu gresaka radi izmene teksta poruke
-     
+
+	public boolean errorWhileParsing = false;
+
+	public Symbol errSymbol;
+
     public void report_fatal_error(String message, Object info) throws java.lang.Exception {
       done_parsing();
-      report_error(message, info);
+      report_error(message, cur_token);
     }
-  
+
     public void syntax_error(Symbol cur_token) {
-        report_error("\nSintaksna greska", cur_token);
+        errorWhileParsing = true;
+        errSymbol = cur_token;
+        //report_error("\nSyntax error", cur_token);
     }
-  
+
     public void unrecovered_syntax_error(Symbol cur_token) throws java.lang.Exception {
-        report_fatal_error("Fatalna greska, parsiranje se ne moze nastaviti", cur_token);
+        report_fatal_error("Fatal error, parsing cannot continue", cur_token);
     }
 
     public void report_error(String message, Object info) {
-    	errorDetected = true;
-    	StringBuilder msg = new StringBuilder(message); 
-    	if (info instanceof Symbol)
-            msg.append (" na liniji ").append(((Symbol)info).left);
-        log.error(msg.toString());
+    	StringBuilder msg = new StringBuilder(message);
+    	if (info instanceof Symbol){
+            msg.append (" on line ").append(((Symbol)info).left);
+            msg.append (" on line ").append(((Symbol)info).value);
+        } 
+        System.err.println(msg.toString());
+        errorWhileParsing = true;
     }
-    
-    public void report_info(String message, Object info) {
-    	StringBuilder msg = new StringBuilder(message); 
-    	if (info instanceof Symbol)
-            msg.append (" na liniji ").append(((Symbol)info).left);
-        log.info(msg.toString());
+
+    public void report_error_on_curr_token(String message){
+        report_error(message, cur_token);
     }
-    
-    public void report_error1(String message){
-    	report_error(message, cur_token);
+
+    public void report_error_on_err_token(String message){
+        report_error(message, errSymbol);
     }
+
 :}
 
 scan with {:
 	Symbol s = this.getScanner().next_token();
-	if (s != null && s.value != null) 
-		log.info(s.toString() + " " + s.value.toString());
+	/* if (s != null && s.value != null)
+		log.info(s.toString() + " " + s.value.toString()); */
 	return s;
 :}
 
+terminal OP_LPAREN, OP_RPAREN, PROG, CONST, OP_SEMI, OP_COMMA, OP_ASSIGN, BREAK, CLASS, ELSE, IF, NEW, ABSTRACT;
+terminal PRINT, READ, RETURN, VOID, FOR, EXTENDS, CONTINUE, OP_PLUS, OP_MINUS, OP_MUL, OP_DIV, OP_MOD, OP_EQUAL, OP_NOT_EQUAL;
+terminal OP_GREATER, OP_GREATER_EQUAL, OP_LESS, OP_LESS_EQUAL, OP_AND, OP_OR, OP_INC, OP_DEC, OP_DOT, OP_LSQUARE;
+terminal OP_RSQUARE, OP_LBRACE, OP_RBRACE;
 terminal String IDENT;
 terminal Integer NUM_CONST;
+terminal BOOL_CONST;
 terminal Character CHAR_CONST;
-terminal Boolean BOOL_CONST;
-terminal PROG, OP_LBRACE, OP_RBRACE, CONST, OP_SEMI, OP_ASSIGN, OP_COMMA, OP_LSQUARE, OP_RSQUARE, ABSTRACT, CLASS;
-terminal EXTENDS, OP_LPAREN, OP_RPAREN, VOID, IF, FOR, BREAK, CONTINUE, RETURN, READ, PRINT, ELSE;
-terminal OP_INC, OP_DEC, OP_OR, OP_AND, OP_MINUS, OP_DOT, OP_NOT_EQUAL, OP_GREATER, OP_GREATER_EQUAL, OP_LESS, OP_LESS_EQUAL, OP_EQUAL;
-terminal NEW, OP_MUL, OP_DIV, OP_MOD, OP_PLUS; 
 
-nonterminal Program, ProgramDeclList, MethodDeclList, MethodDecl;
-nonterminal ConstDeclList, VarDeclList, AbstractClassDecl, ClassDecl, Type, ConstDeclNode, ConstDeclTail;
-nonterminal VarDeclNode, VarDeclTail, ExtendsOption, AbstractClassMethodsOption, AbstractClassMethods, AbstractMethodDecl;
-nonterminal MethodTypeOption, FormParsOption, StatementList, FormPars, Statement, FormParsNode, FormParsTail;
-nonterminal DesignatorStatement, Condition, DesignatorStatementOption, ConditionOption, Expr, Designator;
-nonterminal Assignop, ActPars, CondTerm, ConditionTail, CondFact, CondTermTail, Relop, Term, ExprTail;
-nonterminal Addop, ActParsTail, Factor, TermTail, Mulop, ActParsOption;
-nonterminal MethodVarListOption, MethodVarList;
-nonterminal NoFormPars;
+nonterminal ProgramHeaderDeclList, MethodDeclList, MethodDecl, ConstDeclList, ConstDeclMore, ConstDeclCore;
+nonterminal VarDeclList, VarDeclMore, VarDeclChoice;
+nonterminal FormalParams, FormalParam;
+nonterminal Statement, StatementList, CondStatement;
+nonterminal Assignop, Relop, Addop, Mulop;
+nonterminal ActualParams, ActualParamsChoice;
+nonterminal DesignatorStatement, ForStepPart;
+nonterminal LocalVarDeclList, ClassDecl, ClassExtendsChoice, ClassImplementsChoice, ClassImplementsMultiple;
+nonterminal AbstractClassDecl, AbstractMethDeclChoice, AbstractClassMethodList, AbstractMethodDecl;
+nonterminal FormalParamsChoice, MethodType;
+nonterminal ForStartMarker, ForStatementMarker;
+nonterminal ArrayLoadMarker;
+nonterminal MethDeclChoice, ClassDeclHeader;
+
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgramName;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Program;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodName;
+nonterminal IfStartMarker;
+nonterminal VarDeclCore;
+nonterminal EnumTypeDecl;
+nonterminal DesignatorBase;
+nonterminal Designator;
+nonterminal Expr;
+nonterminal Term;
+nonterminal Factor;
+nonterminal Condition;
+nonterminal CondFact;
+nonterminal CondTerm;
+nonterminal IfElseMarker;
+nonterminal ForCondPart;
+nonterminal ForInitPart;
 
 
 precedence left ELSE;
 
-Program ::= (Program) PROG IDENT:programName ProgramDeclList OP_LBRACE MethodDeclList OP_RBRACE;
+Program ::= (Program) PROG ProgramName:progName ProgramHeaderDeclList OP_LBRACE MethodDeclList OP_RBRACE;
 
-ProgramDeclList ::= (ProgramDeclConst) ProgramDeclList ConstDeclList
-				|
-				(ProgramDeclVar) ProgramDeclList VarDeclList
-				|
-				(ProgramDeclAbstractClass) ProgramDeclList AbstractClassDecl
-				|
-				(ProgramDeclClass) ProgramDeclList ClassDecl
-				|
-				(NoProgramDecl) /*nothing*/
-				;
+ProgramName ::= (ProgramName) IDENT:progName;
 
-MethodDeclList ::= (ContinueMethodDeclList) MethodDeclList MethodDecl
-				|
-				(NoMethodDeclList) /*nothing*/
-				;
-				
-ConstDeclList ::= (ConstDeclList) CONST Type ConstDeclNode ConstDeclTail OP_SEMI;
-
-ConstDeclNode ::= (ConstDeclNum) IDENT:constName OP_ASSIGN NUM_CONST:constVal
-				|
-				(ConstDeclChar) IDENT:constName OP_ASSIGN CHAR_CONST:constVal
-				|
-				(ConstDeclBool) IDENT:constName OP_ASSIGN BOOL_CONST:constVal
-				;
-				
-ConstDeclTail ::= (ContinueConstDeclTail) ConstDeclTail OP_COMMA ConstDeclNode
-				|
-				(NoConstDeclTail) /* nothing */
-				;
-				
-VarDeclList ::= (VarDeclListt) Type VarDeclNode VarDeclTail OP_SEMI
-			|
-			(VarDeclError) error OP_SEMI:line {: parser.report_error1("VarDeclaration error"); :}
-			;
-
-VarDeclNode ::= (VarDeclNodeSingle) IDENT:varName
-				|
-				(VarDeclNodeArray) IDENT:varName OP_LSQUARE OP_RSQUARE
-				|
-				(VarDeclNodeError) error OP_SEMI {: parser.report_error1("VarDeclaration error"); :}
-				;
-				
-VarDeclTail ::= (YesVarDeclTail) VarDeclTail OP_COMMA VarDeclNode
-			|
-			(NoVarDeclTail) /* nothing */
-			;
-			
 Type ::= (Type) IDENT:typeName;
 
-AbstractClassDecl ::= (AbstractClassDecl) ABSTRACT CLASS IDENT ExtendsOption OP_LBRACE MethodVarListOption AbstractClassMethodsOption OP_RBRACE;
+ProgramHeaderDeclList ::= (ProgramHeaderConstDecl) ProgramHeaderDeclList ConstDeclList
+    |
+    (ProgramHeaderVarDecl) ProgramHeaderDeclList VarDeclList
+	|
+	(ProgramHeaderAbstractClassDecl) ProgramHeaderDeclList AbstractClassDecl
+    |
+    (ProgramHeaderClassDecl) ProgramHeaderDeclList ClassDecl
+    |
+    (NoProgramHeaderDecl) /* empty */
+    ;
 
-ExtendsOption ::= (YesExtendsOption) EXTENDS Type
-			|
-			(NoExtendsOption) /* nothing */
-			;
-			
-AbstractClassMethodsOption ::= (YesAbstractClassMethodsOption) OP_LBRACE AbstractClassMethods OP_RBRACE
-							|
-							(NoAbstractClassMethodsOptions) /* nothing */
-							;
-							
-AbstractClassMethods ::= (AbstractClassMethodsMethod) AbstractClassMethods MethodDecl
+ConstDeclList ::= (ConstDeclBase) CONST Type ConstDeclCore ConstDeclMore OP_SEMI;
+
+ConstDeclMore ::= (ConstDeclMultiple) ConstDeclMore OP_COMMA ConstDeclCore
+    |
+    (NoConstDecl) /* empty */
+    ;
+
+ConstDeclCore ::= (ConstDeclNum) IDENT:constIdentifier OP_ASSIGN NUM_CONST:constVal
+    |
+    (ConstDeclChar) IDENT:constIdentifier OP_ASSIGN CHAR_CONST:constVal
+    |
+    (ConstDeclBool) IDENT:constIdentifier OP_ASSIGN BOOL_CONST:constVal
+    ;
+
+VarDeclList ::= (VarDeclBase) Type VarDeclCore VarDeclMore OP_SEMI
+    |
+    (VarDeclError) error OP_SEMI:line {: parser.report_error_on_curr_token("Variable declaration1 error"); :}
+    ;
+
+VarDeclMore ::= (VarDeclMultiple) VarDeclMore OP_COMMA VarDeclCore
+    |
+    (NoVarDecl) /* empty */
+    ;
+
+VarDeclCore ::= (VarDecl) IDENT:varName
+    |
+    (VarDeclArray) IDENT:varName OP_LSQUARE OP_RSQUARE
+    |
+    (VarDeclCoreError) error {: parser.report_error_on_curr_token("Variable declaration1 error"); :}
+    ;
+
+LocalVarDeclList ::= (MethodVarDeclSingle) VarDeclList
+    |
+    (MethodVarDeclMultiple) LocalVarDeclList VarDeclList
+    ;
+
+VarDeclChoice ::= (VarDeclYes) LocalVarDeclList
+    |
+    (VarDeclNo) /* empty */
+    ;
+
+FormalParamsChoice ::= (HasFormalParams) FormalParams
+    |
+    (NoFormalParams) /* empty */
+    ;
+
+FormalParams ::= (FormalParamsFirst) FormalParam
+    |
+    (FormalParamsNext) FormalParams OP_COMMA FormalParam
+    ;
+
+FormalParam ::= (FormalParamSingle) Type IDENT:paramName
+    |
+    (FormalParamArray) Type IDENT:paramName OP_LSQUARE OP_RSQUARE
+    |
+    (FormalParamError) error {: parser.report_error_on_err_token("Error in formal param declaration"); :}
+    ;
+
+MethodDeclList ::= (MethodList) MethodDeclList MethodDecl
+    |
+    (NoMethodList) /* empty */
+    ;
+
+MethodDecl ::= (MethodDecl) MethodType MethodName OP_LPAREN FormalParamsChoice OP_RPAREN VarDeclChoice OP_LBRACE StatementList OP_RBRACE;
+
+MethodName ::= (MethodName) IDENT:methodName;
+
+MethodType ::= (MethodTypeActual) Type
+    |
+    (MethodTypeVoid) VOID
+    ;
+
+MethDeclChoice ::= (ClassMethodDecl) OP_LBRACE MethodDeclList OP_RBRACE
+    |
+    (ClassNoMethodDecl) /* empty */
+    ;
+
+ClassDeclHeader ::= (ClassDeclHeader) IDENT:className;
+
+ClassDecl ::= (ClassDecl) CLASS ClassDeclHeader ClassExtendsChoice OP_LBRACE VarDeclChoice MethDeclChoice OP_RBRACE;
+
+ClassExtendsChoice ::= (ClassExtends) EXTENDS Type
+    |
+    (NoClassExtends) /* empty */
+    |
+    (ClassExtendsError) error {: parser.report_error_on_err_token("Error in extends clause"); :}
+    ;
+
+AbstractClassDecl ::= (AbstractClassDecl) ABSTRACT CLASS ClassDeclHeader ClassExtendsChoice OP_LBRACE VarDeclChoice AbstractMethDeclChoice OP_RBRACE;
+
+AbstractMethDeclChoice ::= (AbstractYesMethodDecl) OP_LBRACE AbstractClassMethodList OP_RBRACE
 						|
-						(AbstractClassMethodsAbstractMethod) AbstractClassMethods AbstractMethodDecl
-						|
-						(NoAbstractClassMethods) /* nothing */
-						;
-
-MethodVarListOption ::= (YesMethodVarListOption) MethodVarList
-					|
-					(NoMethodVarListOption) /* empty */
-					;
-
-MethodVarList ::= (MethodVarListOne) VarDeclList
-				|
-				(MethodVarListMany) MethodVarList VarDeclList
-				;
-						
-MethodDecl ::= (MethodDecl) MethodTypeOption IDENT OP_LPAREN FormParsOption OP_RPAREN MethodVarListOption OP_LBRACE StatementList OP_RBRACE;
-
-MethodTypeOption ::= (MethodType) Type
-				|
-				(VoidMethod) VOID
-				;
-				
-FormParsOption ::= (YesFormParsOption) FormPars
-				|
-				(NoFormParsOption) NoFormPars
-				;
-
-NoFormPars ::= (NoFormPars) /* nothing */;
-				
-StatementList ::= (ContinueStatementList) StatementList Statement
-				|
-				(NoStatementList) /* nothing */
-				;
-
-AbstractMethodDecl ::= (AbstractMethodDecl) ABSTRACT MethodTypeOption IDENT OP_LPAREN FormParsOption OP_RPAREN OP_SEMI;
-
-FormPars ::= (FormPars) FormParsNode FormParsTail;
-
-FormParsNode ::= (FormParsNodeSingle) Type IDENT:paramName
-			|
-			(FormParsNodeArray) Type IDENT:parName OP_LSQUARE OP_RSQUARE
-			|
-			(FormParsNodeError) error OP_SEMI:line {: parser.report_error1("FormPars error"); :}
-			;
-			
-FormParsTail ::= (ContinueFormParsTail) FormParsTail OP_COMMA FormParsNode
-			|
-			(NoFormParsTail) /* nothing */
-			;
-			
-ClassDecl ::= (ClassDeclNoMethods) CLASS IDENT:className ExtendsOption OP_LBRACE MethodVarListOption OP_RBRACE
-			|
-			(ClassDeclMethods) CLASS IDENT:className ExtendsOption 	OP_LBRACE MethodVarListOption OP_LBRACE MethodDeclList OP_RBRACE OP_RBRACE
-			;
-			
-Statement ::= (DesignatorStatementStatement) DesignatorStatement OP_SEMI
-			|
-			(IfStatement) IF OP_LPAREN Condition OP_RPAREN Statement
-			|
-			(IfElseStatement) IF OP_LPAREN Condition OP_RPAREN Statement ELSE Statement
-			|
-			(ForStatement) FOR OP_LPAREN DesignatorStatementOption OP_SEMI ConditionOption OP_SEMI DesignatorStatementOption OP_RPAREN Statement
-			|	
-			(BreakStatement) BREAK OP_SEMI
-			|
-			(ContinueStatement) CONTINUE OP_SEMI
-			|
-			(ReturnStatement) RETURN OP_SEMI
-			|	
-			(ReturnExprStatement) RETURN Expr OP_SEMI
-			|
-			(ReadStatement) READ OP_LPAREN Designator OP_RPAREN OP_SEMI
-			|
-			(PrintStatement) PRINT OP_LPAREN Expr OP_RPAREN OP_SEMI
-			|
-			(PrintNumStatement) PRINT OP_LPAREN Expr OP_COMMA NUM_CONST OP_RPAREN OP_SEMI
-			|
-			(StatementStatement) OP_LBRACE StatementList  OP_RBRACE
-			;
-
-
-DesignatorStatement ::= (DesignatorStatementAssignop) Designator Assignop Expr
-					|
-					(DesignatorStatementActPars) Designator OP_LPAREN ActPars OP_RPAREN
-					|
-					(DesignatorStatementNoActPars) Designator OP_LPAREN OP_RPAREN
-					|
-					(DesignatorStatementInc) Designator OP_INC
-					|
-					(DesignatorStatementDec) Designator OP_DEC
-					|
-					(DesignatorStatementError) error  {: parser.report_error1("DesignatorStatement error"); :}
-					;	
-					
-Condition ::= (Condition) CondTerm ConditionTail;	
-
-ConditionTail ::= (ContinueConditionTail) ConditionTail OP_OR CondTerm
-				|
-				(NoConditionTail) /* nothing */
-				;
-				
-CondTerm ::= (CondTerm) CondFact CondTermTail;	
-
-CondTermTail ::= (ContinueCondTermTail) CondTermTail OP_AND CondFact
-				|
-				(NoCondTermTail) /* nothing */
-				;
-				
-CondFact ::= (CondFactNoRelop) Expr
-		|
-		(CondFactRelop) Expr Relop Expr
-		;
-		
-DesignatorStatementOption ::= (YesDesignatorStatementOption) DesignatorStatement
-						|
-						(NoDesignatorStatementOption) /* nothing */
+						(AbstractNoMethodDecl) /* empty */
 						;
 						
-ConditionOption ::= (YesConditionOption) Condition
-				|
-				(NoConditionOption) /* nothing */
-				;
-				
+AbstractClassMethodList ::= (AbstractClassMethodDecl) AbstractClassMethodList MethodDecl
+						|
+						(AbstractClassAbstractMethodDecl) AbstractClassMethodList AbstractMethodDecl
+						|
+						(NoAbstractClassMethod) /* empty */
+						;
+						
+AbstractMethodDecl	::= (AbstractMethodDecl) ABSTRACT MethodType MethodName OP_LPAREN FormalParamsChoice OP_RPAREN OP_SEMI;					
+
+ActualParamsChoice ::= (HasActualParams) ActualParams
+    |
+    (NoActualParams) /* */
+    ;
+
+ActualParams ::= (ActualParamsSingle) Expr
+    |
+    (ActualParamsMultiple) ActualParams OP_COMMA Expr
+    ;
+
 Expr ::= (ExprTerm) Term
-	|
-	(ExprMinusTerm) OP_MINUS Term
-	|
-	(ExprLongTerm) Expr Addop Term
-	;
-		
-ExprTail ::= (ContinueExprTail) ExprTail Addop Term
-			|
-			(NoExprTail) /* nothing */
-			;
-			
+    |
+    (ExprNegatedTerm) OP_MINUS Term
+    |
+    (ExprList) Expr Addop Term
+    ;
+
+Assignop ::= OP_ASSIGN;
+
+Term ::= (TermBase) Factor
+    |
+    (TermList) Term Mulop Factor
+    ;
+
+DesignatorBase ::= (DesignatorBase) Designator;
+
+ArrayLoadMarker ::= (ArrayLoadMarker) /* empty */;
+
 Designator ::= (DesignatorIdent) IDENT:designatorName
-			|
-			(DesignatorDot) Designator OP_DOT IDENT:designatorName
-			|
-			(DesignatorArray) Designator OP_LSQUARE Expr OP_RSQUARE
-			;
+    |
+    (DesignatorDot) Designator OP_DOT IDENT:designatorName
+    |
+    (DesignatorArray) Designator ArrayLoadMarker OP_LSQUARE Expr OP_RSQUARE
+    ;
 
-					
-Assignop ::= (Assignop) OP_ASSIGN;
+Factor ::= (FactorNum) NUM_CONST:numberFactor
+    |
+    (FactorChar) CHAR_CONST:charFactor
+    |
+    (FactorBool) BOOL_CONST:boolFactor
+    |
+    (FactorAllocation) NEW Type
+    |
+    (FactorAllocationArray) NEW Type OP_LSQUARE Expr OP_RSQUARE
+    |
+    (FactorGrouped) OP_LPAREN Expr OP_RPAREN
+    |
+    (FactorDesignator) DesignatorBase
+    |
+    (FactorDesignatorCall) DesignatorBase OP_LPAREN ActualParamsChoice OP_RPAREN
+    ;
 
-ActPars ::= (ActPars) Expr ActParsTail;
+Relop ::= (RelopEquals) OP_EQUAL
+    |
+    (RelopNotEquals) OP_NOT_EQUAL
+    |
+    (RelopGreaterThan) OP_GREATER
+    |
+    (RelopGreaterEqual) OP_GREATER_EQUAL
+    |
+    (RelopLessThan) OP_LESS
+    |
+    (RelopLessEqual) OP_LESS_EQUAL
+    ;
 
-ActParsTail ::= (ContinueActParsTail) ActParsTail OP_COMMA Expr
-			|
-			(NoActParsTail) /* nothing */
-			;
-			
-Relop ::= (Equal) OP_EQUAL
-		|
-		(NotEqual) OP_NOT_EQUAL
-		|
-		(Greater) OP_GREATER
-		|
-		(GreaterEqual) OP_GREATER_EQUAL
-		|
-		(Less) OP_LESS
-		|
-		(LessEqual) OP_LESS_EQUAL
-		; 
-		
-Term ::= (Term) Factor TermTail;
+Addop ::= (AddopAdd) OP_PLUS
+    |
+    (AddopSub) OP_MINUS
+    ;
 
-TermTail ::= (ContinueTermTail) TermTail Mulop Factor
-			|
-			(NoTermTail) /* nothing */
-			;
+Mulop ::= (MulopMul) OP_MUL
+    |
+    (MulopDiv) OP_DIV
+    |
+    (MulopMod) OP_MOD
+    ;
 
-ActParsOption ::= (YesActParsOption) ActPars
-				|
-				(NoActParsOption) /* nothing */
-				;
-				
-Factor ::= (DesignatorActParsFactor) Designator OP_LPAREN ActParsOption	OP_RPAREN
-			|
-			(NumConstFactor) NUM_CONST
-			|
-			(CharConstFactor) CHAR_CONST
-			|
-			(BoolConstFactor) BOOL_CONST
-			|
-			(NewFactor) NEW Type
-			|
-			(NewExprFactor) NEW Type OP_LSQUARE Expr OP_RSQUARE
-			|
-			(ExprFactor) OP_LPAREN Expr OP_RPAREN
-			;			
+Condition ::= (ConditionBase) CondTerm
+    |
+    (ConditionList) Condition OP_OR CondTerm
+    ;
 
-Mulop ::= (Mul) OP_MUL
-		|
-		(Div) OP_DIV
-		|
-		(Mod) OP_MOD
-		;
-		
-Addop ::= (Plus) OP_PLUS
-		|
-		(Minus) OP_MINUS
-		;	
+CondTerm ::= (CondTermBase) CondFact
+    |
+    (CondTermList) CondTerm OP_AND CondFact
+    ;
+
+CondFact ::= (CondFactBase) Expr
+    |
+    (CondFactRel) Expr Relop Expr
+    ;
+
+StatementList ::= (SingleStatement) StatementList Statement
+    |
+    (NoStatement) /* empty */
+    ;
+
+Statement ::= (BreakStatement) BREAK OP_SEMI
+    |
+    (ContinueStatement) CONTINUE OP_SEMI
+    |
+    (MultipleStatements) OP_LBRACE StatementList OP_RBRACE
+    |
+    (ReturnStatementVoid) RETURN OP_SEMI
+    |
+    (ReturnStatement) RETURN Expr OP_SEMI
+    |
+    (PrintStatementOneArg) PRINT OP_LPAREN Expr OP_RPAREN OP_SEMI
+    |
+    (PrintStatementTwoArg) PRINT OP_LPAREN Expr OP_COMMA NUM_CONST:num OP_RPAREN OP_SEMI
+    |
+    (ConditionalStatement) CondStatement
+    |
+    (ReadStatement) READ OP_LPAREN DesignatorBase OP_RPAREN OP_SEMI
+    |
+    (DesignatorStatementBase) DesignatorStatement OP_SEMI
+    |
+    (ForStatement) FOR OP_LPAREN ForStartMarker ForInitPart OP_SEMI ForCondPart OP_SEMI ForStepPart OP_RPAREN ForStatementMarker Statement
+    ;
+
+DesignatorStatement ::= (DesignatorAssign) DesignatorBase Assignop Expr
+    |
+    (DesignatorCall) DesignatorBase OP_LPAREN ActualParamsChoice OP_RPAREN
+    |
+    (DesignatorInc) DesignatorBase OP_INC
+    |
+    (DesignatorDec) DesignatorBase OP_DEC
+    |
+    (DesignatorError) error {: parser.report_error_on_err_token("Error in designator statement"); :}
+    ;
+
+IfStartMarker ::= (IfStartMarkerCond) Condition
+    |
+    (IfCondError) error {: parser.report_error_on_err_token("Error in if condition"); :}
+;
+
+IfElseMarker ::= (IfElseMarker) /* empty */;
+
+CondStatement ::= (IfStatement) IF OP_LPAREN IfStartMarker OP_RPAREN Statement
+    |
+    (IfElseStatement) IF OP_LPAREN IfStartMarker OP_RPAREN Statement ELSE IfElseMarker Statement
+    ;
+
+ForInitPart ::= (ForInit) DesignatorStatement
+    |
+    (NoForInit) /* empty */
+    ;
+
+ForCondPart ::= (ForCond) Condition
+    |
+    (NoForCond) /* empty */
+    ;
+
+ForStepPart ::= (ForStep) DesignatorStatement
+    |
+    (NoForStep) /* empty */
+    ;
+
+ForStatementMarker ::= (ForStatementMarker) /* empty */;
+
+ForStartMarker ::= (ForStartMarker) /* empty */;

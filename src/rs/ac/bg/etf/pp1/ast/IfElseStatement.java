@@ -1,31 +1,34 @@
 // generated with ast extension for cup
 // version 0.8
-// 26/0/2020 17:40:36
+// 29/0/2020 18:20:51
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class IfElseStatement extends Statement {
+public class IfElseStatement extends CondStatement {
 
-    private Condition Condition;
+    private IfStartMarker IfStartMarker;
     private Statement Statement;
+    private IfElseMarker IfElseMarker;
     private Statement Statement1;
 
-    public IfElseStatement (Condition Condition, Statement Statement, Statement Statement1) {
-        this.Condition=Condition;
-        if(Condition!=null) Condition.setParent(this);
+    public IfElseStatement (IfStartMarker IfStartMarker, Statement Statement, IfElseMarker IfElseMarker, Statement Statement1) {
+        this.IfStartMarker=IfStartMarker;
+        if(IfStartMarker!=null) IfStartMarker.setParent(this);
         this.Statement=Statement;
         if(Statement!=null) Statement.setParent(this);
+        this.IfElseMarker=IfElseMarker;
+        if(IfElseMarker!=null) IfElseMarker.setParent(this);
         this.Statement1=Statement1;
         if(Statement1!=null) Statement1.setParent(this);
     }
 
-    public Condition getCondition() {
-        return Condition;
+    public IfStartMarker getIfStartMarker() {
+        return IfStartMarker;
     }
 
-    public void setCondition(Condition Condition) {
-        this.Condition=Condition;
+    public void setIfStartMarker(IfStartMarker IfStartMarker) {
+        this.IfStartMarker=IfStartMarker;
     }
 
     public Statement getStatement() {
@@ -34,6 +37,14 @@ public class IfElseStatement extends Statement {
 
     public void setStatement(Statement Statement) {
         this.Statement=Statement;
+    }
+
+    public IfElseMarker getIfElseMarker() {
+        return IfElseMarker;
+    }
+
+    public void setIfElseMarker(IfElseMarker IfElseMarker) {
+        this.IfElseMarker=IfElseMarker;
     }
 
     public Statement getStatement1() {
@@ -49,21 +60,24 @@ public class IfElseStatement extends Statement {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(Condition!=null) Condition.accept(visitor);
+        if(IfStartMarker!=null) IfStartMarker.accept(visitor);
         if(Statement!=null) Statement.accept(visitor);
+        if(IfElseMarker!=null) IfElseMarker.accept(visitor);
         if(Statement1!=null) Statement1.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(Condition!=null) Condition.traverseTopDown(visitor);
+        if(IfStartMarker!=null) IfStartMarker.traverseTopDown(visitor);
         if(Statement!=null) Statement.traverseTopDown(visitor);
+        if(IfElseMarker!=null) IfElseMarker.traverseTopDown(visitor);
         if(Statement1!=null) Statement1.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(Condition!=null) Condition.traverseBottomUp(visitor);
+        if(IfStartMarker!=null) IfStartMarker.traverseBottomUp(visitor);
         if(Statement!=null) Statement.traverseBottomUp(visitor);
+        if(IfElseMarker!=null) IfElseMarker.traverseBottomUp(visitor);
         if(Statement1!=null) Statement1.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -73,14 +87,20 @@ public class IfElseStatement extends Statement {
         buffer.append(tab);
         buffer.append("IfElseStatement(\n");
 
-        if(Condition!=null)
-            buffer.append(Condition.toString("  "+tab));
+        if(IfStartMarker!=null)
+            buffer.append(IfStartMarker.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
 
         if(Statement!=null)
             buffer.append(Statement.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        if(IfElseMarker!=null)
+            buffer.append(IfElseMarker.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

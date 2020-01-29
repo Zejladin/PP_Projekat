@@ -1,25 +1,25 @@
 // generated with ast extension for cup
 // version 0.8
-// 26/0/2020 17:40:36
+// 29/0/2020 18:20:51
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class ReadStatement extends Statement {
 
-    private Designator Designator;
+    private DesignatorBase DesignatorBase;
 
-    public ReadStatement (Designator Designator) {
-        this.Designator=Designator;
-        if(Designator!=null) Designator.setParent(this);
+    public ReadStatement (DesignatorBase DesignatorBase) {
+        this.DesignatorBase=DesignatorBase;
+        if(DesignatorBase!=null) DesignatorBase.setParent(this);
     }
 
-    public Designator getDesignator() {
-        return Designator;
+    public DesignatorBase getDesignatorBase() {
+        return DesignatorBase;
     }
 
-    public void setDesignator(Designator Designator) {
-        this.Designator=Designator;
+    public void setDesignatorBase(DesignatorBase DesignatorBase) {
+        this.DesignatorBase=DesignatorBase;
     }
 
     public void accept(Visitor visitor) {
@@ -27,16 +27,16 @@ public class ReadStatement extends Statement {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(Designator!=null) Designator.accept(visitor);
+        if(DesignatorBase!=null) DesignatorBase.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(Designator!=null) Designator.traverseTopDown(visitor);
+        if(DesignatorBase!=null) DesignatorBase.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(Designator!=null) Designator.traverseBottomUp(visitor);
+        if(DesignatorBase!=null) DesignatorBase.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -45,8 +45,8 @@ public class ReadStatement extends Statement {
         buffer.append(tab);
         buffer.append("ReadStatement(\n");
 
-        if(Designator!=null)
-            buffer.append(Designator.toString("  "+tab));
+        if(DesignatorBase!=null)
+            buffer.append(DesignatorBase.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

@@ -1,0 +1,35 @@
+INFO  14:08:57,888 - Compiling source file: D:\myDesktop\Eclipse vezba\MJCompiler\test\program.mj
+INFO  14:08:57,916 - Program(
+  ProgramName(
+   MJProgram
+  ) [ProgramName]
+  NoProgramHeaderDecl(
+  ) [NoProgramHeaderDecl]
+  MethodList(
+    NoMethodList(
+    ) [NoMethodList]
+    MethodDecl(
+      MethodTypeActual(
+        Type(
+         int
+        ) [Type]
+      ) [MethodTypeActual]
+      MethodName(
+       main
+      ) [MethodName]
+      NoFormalParams(
+      ) [NoFormalParams]
+      VarDeclNo(
+      ) [VarDeclNo]
+      SingleStatement(
+        NoStatement(
+        ) [NoStatement]
+        ReturnStatementVoid(
+        ) [ReturnStatementVoid]
+      ) [SingleStatement]
+    ) [MethodDecl]
+  ) [MethodList]
+) [Program]
+INFO  14:08:57,916 - ===================================
+INFO  14:08:57,917 -  Print count calls = 0
+INFO  14:08:57,917 -  Deklarisanih promenljivih ima = 0

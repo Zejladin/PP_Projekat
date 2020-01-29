@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 26/0/2020 17:40:36
+// 29/0/2020 18:20:51
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,51 +9,52 @@ public class AbstractClassDecl implements SyntaxNode {
 
     private SyntaxNode parent;
     private int line;
-    private String I1;
-    private ExtendsOption ExtendsOption;
-    private MethodVarListOption MethodVarListOption;
-    private AbstractClassMethodsOption AbstractClassMethodsOption;
+    private ClassDeclHeader ClassDeclHeader;
+    private ClassExtendsChoice ClassExtendsChoice;
+    private VarDeclChoice VarDeclChoice;
+    private AbstractMethDeclChoice AbstractMethDeclChoice;
 
-    public AbstractClassDecl (String I1, ExtendsOption ExtendsOption, MethodVarListOption MethodVarListOption, AbstractClassMethodsOption AbstractClassMethodsOption) {
-        this.I1=I1;
-        this.ExtendsOption=ExtendsOption;
-        if(ExtendsOption!=null) ExtendsOption.setParent(this);
-        this.MethodVarListOption=MethodVarListOption;
-        if(MethodVarListOption!=null) MethodVarListOption.setParent(this);
-        this.AbstractClassMethodsOption=AbstractClassMethodsOption;
-        if(AbstractClassMethodsOption!=null) AbstractClassMethodsOption.setParent(this);
+    public AbstractClassDecl (ClassDeclHeader ClassDeclHeader, ClassExtendsChoice ClassExtendsChoice, VarDeclChoice VarDeclChoice, AbstractMethDeclChoice AbstractMethDeclChoice) {
+        this.ClassDeclHeader=ClassDeclHeader;
+        if(ClassDeclHeader!=null) ClassDeclHeader.setParent(this);
+        this.ClassExtendsChoice=ClassExtendsChoice;
+        if(ClassExtendsChoice!=null) ClassExtendsChoice.setParent(this);
+        this.VarDeclChoice=VarDeclChoice;
+        if(VarDeclChoice!=null) VarDeclChoice.setParent(this);
+        this.AbstractMethDeclChoice=AbstractMethDeclChoice;
+        if(AbstractMethDeclChoice!=null) AbstractMethDeclChoice.setParent(this);
     }
 
-    public String getI1() {
-        return I1;
+    public ClassDeclHeader getClassDeclHeader() {
+        return ClassDeclHeader;
     }
 
-    public void setI1(String I1) {
-        this.I1=I1;
+    public void setClassDeclHeader(ClassDeclHeader ClassDeclHeader) {
+        this.ClassDeclHeader=ClassDeclHeader;
     }
 
-    public ExtendsOption getExtendsOption() {
-        return ExtendsOption;
+    public ClassExtendsChoice getClassExtendsChoice() {
+        return ClassExtendsChoice;
     }
 
-    public void setExtendsOption(ExtendsOption ExtendsOption) {
-        this.ExtendsOption=ExtendsOption;
+    public void setClassExtendsChoice(ClassExtendsChoice ClassExtendsChoice) {
+        this.ClassExtendsChoice=ClassExtendsChoice;
     }
 
-    public MethodVarListOption getMethodVarListOption() {
-        return MethodVarListOption;
+    public VarDeclChoice getVarDeclChoice() {
+        return VarDeclChoice;
     }
 
-    public void setMethodVarListOption(MethodVarListOption MethodVarListOption) {
-        this.MethodVarListOption=MethodVarListOption;
+    public void setVarDeclChoice(VarDeclChoice VarDeclChoice) {
+        this.VarDeclChoice=VarDeclChoice;
     }
 
-    public AbstractClassMethodsOption getAbstractClassMethodsOption() {
-        return AbstractClassMethodsOption;
+    public AbstractMethDeclChoice getAbstractMethDeclChoice() {
+        return AbstractMethDeclChoice;
     }
 
-    public void setAbstractClassMethodsOption(AbstractClassMethodsOption AbstractClassMethodsOption) {
-        this.AbstractClassMethodsOption=AbstractClassMethodsOption;
+    public void setAbstractMethDeclChoice(AbstractMethDeclChoice AbstractMethDeclChoice) {
+        this.AbstractMethDeclChoice=AbstractMethDeclChoice;
     }
 
     public SyntaxNode getParent() {
@@ -77,22 +78,25 @@ public class AbstractClassDecl implements SyntaxNode {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(ExtendsOption!=null) ExtendsOption.accept(visitor);
-        if(MethodVarListOption!=null) MethodVarListOption.accept(visitor);
-        if(AbstractClassMethodsOption!=null) AbstractClassMethodsOption.accept(visitor);
+        if(ClassDeclHeader!=null) ClassDeclHeader.accept(visitor);
+        if(ClassExtendsChoice!=null) ClassExtendsChoice.accept(visitor);
+        if(VarDeclChoice!=null) VarDeclChoice.accept(visitor);
+        if(AbstractMethDeclChoice!=null) AbstractMethDeclChoice.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(ExtendsOption!=null) ExtendsOption.traverseTopDown(visitor);
-        if(MethodVarListOption!=null) MethodVarListOption.traverseTopDown(visitor);
-        if(AbstractClassMethodsOption!=null) AbstractClassMethodsOption.traverseTopDown(visitor);
+        if(ClassDeclHeader!=null) ClassDeclHeader.traverseTopDown(visitor);
+        if(ClassExtendsChoice!=null) ClassExtendsChoice.traverseTopDown(visitor);
+        if(VarDeclChoice!=null) VarDeclChoice.traverseTopDown(visitor);
+        if(AbstractMethDeclChoice!=null) AbstractMethDeclChoice.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(ExtendsOption!=null) ExtendsOption.traverseBottomUp(visitor);
-        if(MethodVarListOption!=null) MethodVarListOption.traverseBottomUp(visitor);
-        if(AbstractClassMethodsOption!=null) AbstractClassMethodsOption.traverseBottomUp(visitor);
+        if(ClassDeclHeader!=null) ClassDeclHeader.traverseBottomUp(visitor);
+        if(ClassExtendsChoice!=null) ClassExtendsChoice.traverseBottomUp(visitor);
+        if(VarDeclChoice!=null) VarDeclChoice.traverseBottomUp(visitor);
+        if(AbstractMethDeclChoice!=null) AbstractMethDeclChoice.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -101,23 +105,26 @@ public class AbstractClassDecl implements SyntaxNode {
         buffer.append(tab);
         buffer.append("AbstractClassDecl(\n");
 
-        buffer.append(" "+tab+I1);
-        buffer.append("\n");
-
-        if(ExtendsOption!=null)
-            buffer.append(ExtendsOption.toString("  "+tab));
+        if(ClassDeclHeader!=null)
+            buffer.append(ClassDeclHeader.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(MethodVarListOption!=null)
-            buffer.append(MethodVarListOption.toString("  "+tab));
+        if(ClassExtendsChoice!=null)
+            buffer.append(ClassExtendsChoice.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(AbstractClassMethodsOption!=null)
-            buffer.append(AbstractClassMethodsOption.toString("  "+tab));
+        if(VarDeclChoice!=null)
+            buffer.append(VarDeclChoice.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        if(AbstractMethDeclChoice!=null)
+            buffer.append(AbstractMethDeclChoice.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

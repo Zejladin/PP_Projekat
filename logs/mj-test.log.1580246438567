@@ -1,0 +1,144 @@
+INFO  22:19:31,553 - Compiling source file: D:\myDesktop\Eclipse vezba\MJCompiler\test\program.mj
+INFO  22:19:31,597 - Program(
+  ProgramName(
+   MJProgram
+  ) [ProgramName]
+  ProgramHeaderAbstractClassDecl(
+    ProgramHeaderClassDecl(
+      NoProgramHeaderDecl(
+      ) [NoProgramHeaderDecl]
+      ClassDecl(
+        ClassDeclHeader(
+         Milena
+        ) [ClassDeclHeader]
+        NoClassExtends(
+        ) [NoClassExtends]
+        VarDeclYes(
+          MethodVarDeclSingle(
+            VarDeclBase(
+              Type(
+               int
+              ) [Type]
+              VarDecl(
+               x
+              ) [VarDecl]
+              VarDeclMultiple(
+                NoVarDecl(
+                ) [NoVarDecl]
+                VarDecl(
+                 y
+                ) [VarDecl]
+              ) [VarDeclMultiple]
+            ) [VarDeclBase]
+          ) [MethodVarDeclSingle]
+        ) [VarDeclYes]
+        ClassNoMethodDecl(
+        ) [ClassNoMethodDecl]
+      ) [ClassDecl]
+    ) [ProgramHeaderClassDecl]
+    AbstractClassDecl(
+      ClassDeclHeader(
+       Djuradj
+      ) [ClassDeclHeader]
+      NoClassExtends(
+      ) [NoClassExtends]
+      VarDeclYes(
+        MethodVarDeclSingle(
+          VarDeclBase(
+            Type(
+             int
+            ) [Type]
+            VarDecl(
+             x
+            ) [VarDecl]
+            NoVarDecl(
+            ) [NoVarDecl]
+          ) [VarDeclBase]
+        ) [MethodVarDeclSingle]
+      ) [VarDeclYes]
+      AbstractYesMethodDecl(
+        AbstractClassAbstractMethodDecl(
+          NoAbstractClassMethod(
+          ) [NoAbstractClassMethod]
+          AbstractMethodDecl(
+            MethodTypeVoid(
+            ) [MethodTypeVoid]
+            MethodName(
+             nesto
+            ) [MethodName]
+            NoFormalParams(
+            ) [NoFormalParams]
+          ) [AbstractMethodDecl]
+        ) [AbstractClassAbstractMethodDecl]
+      ) [AbstractYesMethodDecl]
+    ) [AbstractClassDecl]
+  ) [ProgramHeaderAbstractClassDecl]
+  MethodList(
+    NoMethodList(
+    ) [NoMethodList]
+    MethodDecl(
+      MethodTypeActual(
+        Type(
+         int
+        ) [Type]
+      ) [MethodTypeActual]
+      MethodName(
+       main
+      ) [MethodName]
+      NoFormalParams(
+      ) [NoFormalParams]
+      VarDeclYes(
+        MethodVarDeclSingle(
+          VarDeclBase(
+            Type(
+             int
+            ) [Type]
+            VarDecl(
+             x
+            ) [VarDecl]
+            NoVarDecl(
+            ) [NoVarDecl]
+          ) [VarDeclBase]
+        ) [MethodVarDeclSingle]
+      ) [VarDeclYes]
+      SingleStatement(
+        SingleStatement(
+          NoStatement(
+          ) [NoStatement]
+          DesignatorStatementBase(
+            DesignatorAssign(
+              DesignatorBase(
+                DesignatorIdent(
+                 x
+                ) [DesignatorIdent]
+              ) [DesignatorBase]
+              AssignopDerived1(
+              ) [AssignopDerived1]
+              ExprTerm(
+                TermBase(
+                  FactorNum(
+                   2
+                  ) [FactorNum]
+                ) [TermBase]
+              ) [ExprTerm]
+            ) [DesignatorAssign]
+          ) [DesignatorStatementBase]
+        ) [SingleStatement]
+        ReturnStatement(
+          ExprTerm(
+            TermBase(
+              FactorDesignator(
+                DesignatorBase(
+                  DesignatorIdent(
+                   x
+                  ) [DesignatorIdent]
+                ) [DesignatorBase]
+              ) [FactorDesignator]
+            ) [TermBase]
+          ) [ExprTerm]
+        ) [ReturnStatement]
+      ) [SingleStatement]
+    ) [MethodDecl]
+  ) [MethodList]
+) [Program]
+INFO  22:19:31,598 - ===================================
