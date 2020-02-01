@@ -5,6 +5,7 @@ import rs.ac.bg.etf.pp1.ast.*;
 import rs.etf.pp1.mj.runtime.Code;
 import rs.etf.pp1.symboltable.Tab;
 import rs.etf.pp1.symboltable.concepts.Obj;
+import rs.etf.pp1.symboltable.concepts.Struct;
 
 public class CodeGenerator extends VisitorAdaptor {
 
@@ -91,6 +92,34 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
 	
 	public void visit(ReadStatement stm) {
-		Code.put(Code.read);
+		
+		Obj o = stm.getDesignatorBase().obj;
+		if(o.getType().getKind() == Struct.Char) {
+			Code.put(Code.bread);
+		}
+		else {
+			Code.put(Code.read);
+		}
+		Code.store(o);
+	}
+	
+	public void visit(FactorAllocationArray fac) {
+		Code.put(Code.newarray);
+		if(fac.getType().struct == Tab.charType)
+			Code.put(0);
+		else {
+			Code.put(1);
+			System.out.println("Pravimo niz integera!");
+		}
+	}
+	
+	public void visit(ArrayLoadMarker mark) {
+		Obj o = ((DesignatorArray)mark.getParent()).getDesignator().obj;
+		Code.load(o);
+	}
+	
+	public void visit(DesignatorIdent des) {
+		if(des.obj.getKind() == Obj.Fld)
+			Code.put(Code.load_n);
 	}
 }

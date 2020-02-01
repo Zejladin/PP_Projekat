@@ -15,6 +15,8 @@ public class SemanticPass extends RuleVisitor {
 	private Obj curClass = Tab.noObj;
 	private Obj curMethod = Tab.noObj;
 	
+	public int varCount = 0;
+	
 	private int loopDepth = 0;
 	
 	private boolean errorDetected;
@@ -128,6 +130,12 @@ public class SemanticPass extends RuleVisitor {
 		else {
 			this.report_error("Greska,  promenljiva sa imenom " + vardecl.getVarName() + " vec postoji", null);
 		}
+		if(curMethod == Tab.noObj)
+			varCount++;
+	}
+	
+	public int getVarCount() {
+		return this.varCount;
 	}
 	
 	public void visit(VarDeclArray vardecl) {
@@ -141,12 +149,14 @@ public class SemanticPass extends RuleVisitor {
 			}
 			else {
 				Tab.insert(Obj.Var, vardecl.getVarName(), myStruc);
-				this.report_info("Pravim novi niz sa " + myStruc, null);
+				this.report_info("Pravim novi niz tipa " + varType, vardecl);
 			}
 		}
 		else {
 			this.report_error("Greska, promenljiva sa imenom " + vardecl.getVarName() + " vec postoji", null);
 		}
+		if(curMethod == Tab.noObj)
+			varCount++;
 	}
 	
 	public void visit(MethodName methodName) {
@@ -219,6 +229,23 @@ public class SemanticPass extends RuleVisitor {
 		}
 	}
 	
+	public void visit(ConstDeclBool boolConst) {
+		Type type = getConstDeclType(boolConst);
+		Struct s = Tab.find("bool").getType();
+		if(type.struct != s) {
+			this.report_error("Greska u assajnovanju", boolConst);
+		}
+		else {
+			if(SemanticPass.find(boolConst.getConstIdentifier()) != Tab.noObj) {
+				this.report_error("Ime promenljive vec iskorisceno", boolConst);
+			}
+			else {
+				Obj newConst = Tab.insert(Obj.Con, boolConst.getConstIdentifier(), s);
+				this.report_info(boolConst.getConstIdentifier(), null);
+			}
+		}
+	}
+	
 	public void visit(FormalParamSingle formPar) {
 		if(SemanticPass.find(formPar.getParamName()) == Tab.noObj) {
 			Obj o = Tab.insert(Obj.Var, formPar.getParamName(), formPar.getType().struct);
@@ -284,7 +311,13 @@ public class SemanticPass extends RuleVisitor {
 			this.report_error("Promenljiva ovog tipa se ne moze promeniti assignom!", null);
 		}
 		this.report_info(des.getExpr().struct.toString(), null);
-		if(des.getDesignatorBase().obj.getType() != des.getExpr().struct) {
+		this.report_info(des.getDesignatorBase().obj.getType().toString(), null);
+		if(des.getDesignatorBase().obj.getType().getKind() == Struct.Array && des.getExpr().struct.getKind() == Struct.Array) {
+			if(des.getDesignatorBase().obj.getType().getElemType() != des.getExpr().struct.getElemType()) {
+				this.report_error("Greska pri dodeli vrednosti", des);
+			}
+		}
+		else if(des.getDesignatorBase().obj.getType() != des.getExpr().struct) {
 			this.report_error("Greska pri dodeli vrednosti", des);
 		}
 	}
@@ -470,7 +503,8 @@ public class SemanticPass extends RuleVisitor {
 		if(fact.getExpr().struct != Tab.intType) {
 			this.report_error("Greska pri deklaraciji integera se mora koristiti integer!", fact);
 		}
-		fact.struct = new Struct(Struct.Array, fact.getExpr().struct);
+		fact.struct = new Struct(Struct.Array, fact.getType().struct);
+		this.report_info("pravim novi niz tipa " + fact.getType().struct, fact);
 	}
 	
 	public void visit(DesignatorArray des) {

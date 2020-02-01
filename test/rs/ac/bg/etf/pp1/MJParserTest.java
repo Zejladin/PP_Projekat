@@ -60,6 +60,7 @@ public class MJParserTest {
 				
 				CodeGenerator codeGenerator = new CodeGenerator();
 				prog.traverseBottomUp(codeGenerator);
+				Code.dataSize = v.getVarCount();
 				Code.mainPc = codeGenerator.getMainPc();
 				Code.write(new FileOutputStream(file));
 			}

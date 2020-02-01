@@ -1,0 +1,181 @@
+INFO  17:29:29,974 - Compiling source file: D:\myDesktop\Eclipse vezba\MJCompiler\test\program.mj
+INFO  17:29:30,013 - Program(
+  ProgramName(
+   Micko
+  ) [ProgramName]
+  ProgramHeaderConstDecl(
+    ProgramHeaderVarDecl(
+      ProgramHeaderVarDecl(
+        NoProgramHeaderDecl(
+        ) [NoProgramHeaderDecl]
+        VarDeclBase(
+          Type(
+           char
+          ) [Type]
+          VarDeclArray(
+           a
+          ) [VarDeclArray]
+          NoVarDecl(
+          ) [NoVarDecl]
+        ) [VarDeclBase]
+      ) [ProgramHeaderVarDecl]
+      VarDeclBase(
+        Type(
+         char
+        ) [Type]
+        VarDecl(
+         q
+        ) [VarDecl]
+        NoVarDecl(
+        ) [NoVarDecl]
+      ) [VarDeclBase]
+    ) [ProgramHeaderVarDecl]
+    ConstDeclBase(
+      Type(
+       int
+      ) [Type]
+      ConstDeclNum(
+       ja
+       14
+      ) [ConstDeclNum]
+      NoConstDecl(
+      ) [NoConstDecl]
+    ) [ConstDeclBase]
+  ) [ProgramHeaderConstDecl]
+  MethodList(
+    NoMethodList(
+    ) [NoMethodList]
+    MethodDecl(
+      MethodTypeActual(
+        Type(
+         int
+        ) [Type]
+      ) [MethodTypeActual]
+      MethodName(
+       s
+      ) [MethodName]
+      NoFormalParams(
+      ) [NoFormalParams]
+      VarDeclYes(
+        MethodVarDeclMultiple(
+          MethodVarDeclSingle(
+            VarDeclBase(
+              Type(
+               char
+              ) [Type]
+              VarDecl(
+               gh
+              ) [VarDecl]
+              NoVarDecl(
+              ) [NoVarDecl]
+            ) [VarDeclBase]
+          ) [MethodVarDeclSingle]
+          VarDeclBase(
+            Type(
+             int
+            ) [Type]
+            VarDecl(
+             s
+            ) [VarDecl]
+            NoVarDecl(
+            ) [NoVarDecl]
+          ) [VarDeclBase]
+        ) [MethodVarDeclMultiple]
+      ) [VarDeclYes]
+      SingleStatement(
+        SingleStatement(
+          SingleStatement(
+            SingleStatement(
+              SingleStatement(
+                NoStatement(
+                ) [NoStatement]
+                DesignatorStatementBase(
+                  DesignatorAssign(
+                    DesignatorBase(
+                      DesignatorIdent(
+                       a
+                      ) [DesignatorIdent]
+                    ) [DesignatorBase]
+                    AssignopDerived1(
+                    ) [AssignopDerived1]
+                    ExprTerm(
+                      TermBase(
+                        FactorAllocationArray(
+                          Type(
+                           int
+                          ) [Type]
+                          ExprTerm(
+                            TermBase(
+                              FactorNum(
+                               2
+                              ) [FactorNum]
+                            ) [TermBase]
+                          ) [ExprTerm]
+                        ) [FactorAllocationArray]
+                      ) [TermBase]
+                    ) [ExprTerm]
+                  ) [DesignatorAssign]
+                ) [DesignatorStatementBase]
+              ) [SingleStatement]
+              ReadStatement(
+                DesignatorBase(
+                  DesignatorIdent(
+                   s
+                  ) [DesignatorIdent]
+                ) [DesignatorBase]
+              ) [ReadStatement]
+            ) [SingleStatement]
+            PrintStatementOneArg(
+              ExprNegatedTerm(
+                TermBase(
+                  FactorDesignator(
+                    DesignatorBase(
+                      DesignatorIdent(
+                       s
+                      ) [DesignatorIdent]
+                    ) [DesignatorBase]
+                  ) [FactorDesignator]
+                ) [TermBase]
+              ) [ExprNegatedTerm]
+            ) [PrintStatementOneArg]
+          ) [SingleStatement]
+          PrintStatementOneArg(
+            ExprTerm(
+              TermBase(
+                FactorDesignator(
+                  DesignatorBase(
+                    DesignatorIdent(
+                     gh
+                    ) [DesignatorIdent]
+                  ) [DesignatorBase]
+                ) [FactorDesignator]
+              ) [TermBase]
+            ) [ExprTerm]
+          ) [PrintStatementOneArg]
+        ) [SingleStatement]
+        ReturnStatement(
+          ExprTerm(
+            TermBase(
+              FactorNum(
+               0
+              ) [FactorNum]
+            ) [TermBase]
+          ) [ExprTerm]
+        ) [ReturnStatement]
+      ) [SingleStatement]
+    ) [MethodDecl]
+  ) [MethodList]
+) [Program]
+INFO  17:29:30,014 - ===================================
+INFO  17:29:30,016 - Pronadjen tip rs.etf.pp1.symboltable.concepts.Struct@7e6cbb7a na liniji 3
+INFO  17:29:30,016 - Pravim novi niz tipa rs.ac.bg.etf.pp1.ast.Type@7c3df479 na liniji 3
+INFO  17:29:30,016 - Pronadjen tip rs.etf.pp1.symboltable.concepts.Struct@7e6cbb7a na liniji 4
+INFO  17:29:30,016 - Pronadjen tip rs.etf.pp1.symboltable.concepts.Struct@7106e68e na liniji 5
+INFO  17:29:30,016 - Pronadjen tip rs.etf.pp1.symboltable.concepts.Struct@7106e68e na liniji 8
+INFO  17:29:30,017 - Pronadjen tip rs.etf.pp1.symboltable.concepts.Struct@7e6cbb7a na liniji 8
+INFO  17:29:30,017 - Pronadjen tip rs.etf.pp1.symboltable.concepts.Struct@7106e68e na liniji 8
+INFO  17:29:30,017 - Pronadjen tip rs.etf.pp1.symboltable.concepts.Struct@7106e68e na liniji 10
+INFO  17:29:30,017 - pravim novi niz tipa rs.etf.pp1.symboltable.concepts.Struct@7106e68e na liniji 10
+INFO  17:29:30,017 - rs.etf.pp1.symboltable.concepts.Struct@7eda2dbb
+INFO  17:29:30,017 - rs.etf.pp1.symboltable.concepts.Struct@6576fe71
+ERROR 17:29:30,017 - Greska pri dodeli vrednosti na liniji 10

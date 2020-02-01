@@ -5,7 +5,9 @@ char q;
 const int ja = 14;
 
 {
-	int s() int s; char gh; {
+	int s() char gh; int s; {
+		
+		a = new char[2];
 		
 		read(s);
 		print(-s);

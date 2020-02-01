@@ -1,50 +1,235 @@
-INFO  15:12:51,879 - Compiling source file: D:\myDesktop\Eclipse vezba\MJCompiler\test\program.mj
-INFO  15:12:51,889 - #4 program
-INFO  15:12:51,889 - #42 Micko
-INFO  15:12:51,889 - #42 char
-INFO  15:12:51,889 - #42 a
-INFO  15:12:51,889 - #38 [
-INFO  15:12:51,889 - #39 ]
-INFO  15:12:51,889 - #6 ;
-INFO  15:12:51,890 - #42 char
-INFO  15:12:51,890 - #42 q
-INFO  15:12:51,890 - #6 ;
-INFO  15:12:51,890 - #5 const
-INFO  15:12:51,890 - #42 int
-INFO  15:12:51,890 - #42 ja
-INFO  15:12:51,890 - #8 =
-INFO  15:12:51,890 - #43 14
-INFO  15:12:51,890 - #6 ;
-INFO  15:12:51,890 - #40 {
-INFO  15:12:51,890 - #42 int
-INFO  15:12:51,890 - #42 s
-INFO  15:12:51,890 - #2 (
-INFO  15:12:51,890 - #3 )
-INFO  15:12:51,890 - #42 int
-INFO  15:12:51,891 - #42 s
-INFO  15:12:51,891 - #6 ;
-INFO  15:12:51,891 - #42 char
-INFO  15:12:51,891 - #42 gh
-INFO  15:12:51,891 - #6 ;
-INFO  15:12:51,891 - #40 {
-INFO  15:12:51,891 - #42 read
-INFO  15:12:51,891 - #2 (
-INFO  15:12:51,891 - #42 s
-INFO  15:12:51,891 - #3 )
-INFO  15:12:51,891 - #6 ;
-INFO  15:12:51,891 - #15 print
-INFO  15:12:51,891 - #2 (
-INFO  15:12:51,891 - #23 -
-INFO  15:12:51,891 - #42 s
-INFO  15:12:51,891 - #3 )
-INFO  15:12:51,891 - #6 ;
-INFO  15:12:51,891 - #15 print
-INFO  15:12:51,891 - #2 (
-INFO  15:12:51,891 - #42 gh
-INFO  15:12:51,892 - #3 )
-INFO  15:12:51,892 - #6 ;
-INFO  15:12:51,892 - #17 return
-INFO  15:12:51,892 - #43 0
-INFO  15:12:51,892 - #6 ;
-INFO  15:12:51,892 - #41 }
-INFO  15:12:51,892 - #41 }
+INFO  20:01:21,108 - Compiling source file: D:\myDesktop\Eclipse vezba\MJCompiler\test\program.mj
+INFO  20:01:21,146 - Program(
+  ProgramName(
+   Micko
+  ) [ProgramName]
+  ProgramHeaderConstDecl(
+    ProgramHeaderVarDecl(
+      ProgramHeaderVarDecl(
+        ProgramHeaderVarDecl(
+          NoProgramHeaderDecl(
+          ) [NoProgramHeaderDecl]
+          VarDeclBase(
+            Type(
+             int
+            ) [Type]
+            VarDeclArray(
+             a
+            ) [VarDeclArray]
+            NoVarDecl(
+            ) [NoVarDecl]
+          ) [VarDeclBase]
+        ) [ProgramHeaderVarDecl]
+        VarDeclBase(
+          Type(
+           char
+          ) [Type]
+          VarDecl(
+           q
+          ) [VarDecl]
+          NoVarDecl(
+          ) [NoVarDecl]
+        ) [VarDeclBase]
+      ) [ProgramHeaderVarDecl]
+      VarDeclBase(
+        Type(
+         int
+        ) [Type]
+        VarDecl(
+         d
+        ) [VarDecl]
+        NoVarDecl(
+        ) [NoVarDecl]
+      ) [VarDeclBase]
+    ) [ProgramHeaderVarDecl]
+    ConstDeclBase(
+      Type(
+       int
+      ) [Type]
+      ConstDeclNum(
+       ja
+       14
+      ) [ConstDeclNum]
+      NoConstDecl(
+      ) [NoConstDecl]
+    ) [ConstDeclBase]
+  ) [ProgramHeaderConstDecl]
+  MethodList(
+    NoMethodList(
+    ) [NoMethodList]
+    MethodDecl(
+      MethodTypeActual(
+        Type(
+         int
+        ) [Type]
+      ) [MethodTypeActual]
+      MethodName(
+       main
+      ) [MethodName]
+      NoFormalParams(
+      ) [NoFormalParams]
+      VarDeclYes(
+        MethodVarDeclMultiple(
+          MethodVarDeclSingle(
+            VarDeclBase(
+              Type(
+               char
+              ) [Type]
+              VarDecl(
+               gh
+              ) [VarDecl]
+              NoVarDecl(
+              ) [NoVarDecl]
+            ) [VarDeclBase]
+          ) [MethodVarDeclSingle]
+          VarDeclBase(
+            Type(
+             int
+            ) [Type]
+            VarDecl(
+             s
+            ) [VarDecl]
+            NoVarDecl(
+            ) [NoVarDecl]
+          ) [VarDeclBase]
+        ) [MethodVarDeclMultiple]
+      ) [VarDeclYes]
+      SingleStatement(
+        SingleStatement(
+          SingleStatement(
+            SingleStatement(
+              SingleStatement(
+                NoStatement(
+                ) [NoStatement]
+                DesignatorStatementBase(
+                  DesignatorAssign(
+                    DesignatorBase(
+                      DesignatorIdent(
+                       a
+                      ) [DesignatorIdent]
+                    ) [DesignatorBase]
+                    AssignopDerived1(
+                    ) [AssignopDerived1]
+                    ExprTerm(
+                      TermBase(
+                        FactorAllocationArray(
+                          Type(
+                           int
+                          ) [Type]
+                          ExprTerm(
+                            TermBase(
+                              FactorNum(
+                               2
+                              ) [FactorNum]
+                            ) [TermBase]
+                          ) [ExprTerm]
+                        ) [FactorAllocationArray]
+                      ) [TermBase]
+                    ) [ExprTerm]
+                  ) [DesignatorAssign]
+                ) [DesignatorStatementBase]
+              ) [SingleStatement]
+              DesignatorStatementBase(
+                DesignatorAssign(
+                  DesignatorBase(
+                    DesignatorArray(
+                      DesignatorIdent(
+                       a
+                      ) [DesignatorIdent]
+                      ArrayLoadMarker(
+                      ) [ArrayLoadMarker]
+                      ExprTerm(
+                        TermBase(
+                          FactorNum(
+                           1
+                          ) [FactorNum]
+                        ) [TermBase]
+                      ) [ExprTerm]
+                    ) [DesignatorArray]
+                  ) [DesignatorBase]
+                  AssignopDerived1(
+                  ) [AssignopDerived1]
+                  ExprTerm(
+                    TermBase(
+                      FactorNum(
+                       5
+                      ) [FactorNum]
+                    ) [TermBase]
+                  ) [ExprTerm]
+                ) [DesignatorAssign]
+              ) [DesignatorStatementBase]
+            ) [SingleStatement]
+            PrintStatementOneArg(
+              ExprTerm(
+                TermBase(
+                  FactorDesignator(
+                    DesignatorBase(
+                      DesignatorArray(
+                        DesignatorIdent(
+                         a
+                        ) [DesignatorIdent]
+                        ArrayLoadMarker(
+                        ) [ArrayLoadMarker]
+                        ExprTerm(
+                          TermBase(
+                            FactorNum(
+                             1
+                            ) [FactorNum]
+                          ) [TermBase]
+                        ) [ExprTerm]
+                      ) [DesignatorArray]
+                    ) [DesignatorBase]
+                  ) [FactorDesignator]
+                ) [TermBase]
+              ) [ExprTerm]
+            ) [PrintStatementOneArg]
+          ) [SingleStatement]
+          PrintStatementOneArg(
+            ExprTerm(
+              TermBase(
+                FactorDesignator(
+                  DesignatorBase(
+                    DesignatorArray(
+                      DesignatorIdent(
+                       a
+                      ) [DesignatorIdent]
+                      ArrayLoadMarker(
+                      ) [ArrayLoadMarker]
+                      ExprTerm(
+                        TermBase(
+                          FactorNum(
+                           0
+                          ) [FactorNum]
+                        ) [TermBase]
+                      ) [ExprTerm]
+                    ) [DesignatorArray]
+                  ) [DesignatorBase]
+                ) [FactorDesignator]
+              ) [TermBase]
+            ) [ExprTerm]
+          ) [PrintStatementOneArg]
+        ) [SingleStatement]
+        ReturnStatement(
+          ExprTerm(
+            TermBase(
+              FactorNum(
+               0
+              ) [FactorNum]
+            ) [TermBase]
+          ) [ExprTerm]
+        ) [ReturnStatement]
+      ) [SingleStatement]
+    ) [MethodDecl]
+  ) [MethodList]
+) [Program]
+INFO  20:01:21,147 - ===================================
+INFO  20:01:21,149 - Pravim novi niz tipa rs.ac.bg.etf.pp1.ast.Type@7e6cbb7a na liniji 3
+INFO  20:01:21,150 - pravim novi niz tipa rs.etf.pp1.symboltable.concepts.Struct@7c3df479 na liniji 11
+INFO  20:01:21,150 - rs.etf.pp1.symboltable.concepts.Struct@7106e68e
+INFO  20:01:21,150 - rs.etf.pp1.symboltable.concepts.Struct@7eda2dbb
+INFO  20:01:21,150 - 1asd 
+INFO  20:01:21,150 - rs.etf.pp1.symboltable.concepts.Struct@7c3df479
+INFO  20:01:21,150 - rs.etf.pp1.symboltable.concepts.Struct@7c3df479
+INFO  20:01:21,150 - 1asd 
+INFO  20:01:21,150 - 1asd 
+INFO  20:01:21,150 - Pocinjemo sa generisanjem koda!

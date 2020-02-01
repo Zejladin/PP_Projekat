@@ -1,16 +1,18 @@
 program Micko
 
-char a[];
+int a[];
 char q;
+boolean d;
 const int ja = 14;
 
 {
-	int s() int s; char gh; {
+	int main() char gh; int s; {
 		
-		read(s);
-		print(-s);
+		a = new int[2];
+		a[1] = 5;
+		print(a[1]);
+		print(a[0]);
 		
-		print(gh);
 		
 		return 0;
 	}
