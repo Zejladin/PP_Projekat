@@ -54,10 +54,10 @@ import java_cup.runtime.Symbol;
 
 
 [0-9]+  { return new_symbol(sym.NUM_CONST, new Integer (yytext())); }
-([a-z]|[A-Z])[a-z|A-Z|0-9|_]* 	{return new_symbol (sym.IDENT, yytext()); }
 "true"   { return new_symbol(sym.BOOL_CONST, true); }
 "false"  { return new_symbol(sym.BOOL_CONST, false); }
 '.'		{ return new_symbol(sym.CHAR_CONST, yytext().charAt(1)); }
+([a-z]|[A-Z])[a-z|A-Z|0-9|_]* 	{return new_symbol (sym.IDENT, yytext()); }
 
 "+" { return new_symbol(sym.OP_PLUS, yytext()); }
 "-" { return new_symbol(sym.OP_MINUS, yytext()); }

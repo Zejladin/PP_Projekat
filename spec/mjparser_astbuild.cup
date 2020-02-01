@@ -58,7 +58,7 @@ terminal OP_GREATER, OP_GREATER_EQUAL, OP_LESS, OP_LESS_EQUAL, OP_AND, OP_OR, OP
 terminal OP_RSQUARE, OP_LBRACE, OP_RBRACE;
 terminal String IDENT;
 terminal Integer NUM_CONST;
-terminal BOOL_CONST;
+terminal Boolean BOOL_CONST;
 terminal Character CHAR_CONST;
 
 nonterminal ProgramHeaderDeclList ProgramHeaderDeclList;
@@ -147,7 +147,7 @@ ConstDeclCore ::= (ConstDeclNum) IDENT:constIdentifier OP_ASSIGN NUM_CONST:const
     |
     (ConstDeclChar) IDENT:constIdentifier OP_ASSIGN CHAR_CONST:constVal {: RESULT=new ConstDeclChar(constIdentifier, constVal); RESULT.setLine(constIdentifierleft); :}
     |
-    (ConstDeclBool) IDENT:constIdentifier OP_ASSIGN BOOL_CONST:constVal {: RESULT=new ConstDeclBool(constIdentifier); RESULT.setLine(constIdentifierleft); :}
+    (ConstDeclBool) IDENT:constIdentifier OP_ASSIGN BOOL_CONST:constVal {: RESULT=new ConstDeclBool(constIdentifier, constVal); RESULT.setLine(constIdentifierleft); :}
     ;
 
 VarDeclList ::= (VarDeclBase) Type:T1 VarDeclCore:V2 VarDeclMore:V3 OP_SEMI {: RESULT=new VarDeclBase(T1, V2, V3); RESULT.setLine(T1left); :}
@@ -279,7 +279,7 @@ Factor ::= (FactorNum) NUM_CONST:numberFactor {: RESULT=new FactorNum(numberFact
     |
     (FactorChar) CHAR_CONST:charFactor {: RESULT=new FactorChar(charFactor); RESULT.setLine(charFactorleft); :}
     |
-    (FactorBool) BOOL_CONST:boolFactor {: RESULT=new FactorBool(); :}
+    (FactorBool) BOOL_CONST:boolFactor {: RESULT=new FactorBool(boolFactor); RESULT.setLine(boolFactorleft); :}
     |
     (FactorAllocation) NEW Type:T1 {: RESULT=new FactorAllocation(T1); RESULT.setLine(T1left); :}
     |

@@ -241,7 +241,7 @@ public class SemanticPass extends RuleVisitor {
 			}
 			else {
 				Obj newConst = Tab.insert(Obj.Con, boolConst.getConstIdentifier(), s);
-				this.report_info(boolConst.getConstIdentifier(), null);
+				newConst.setAdr((boolConst.getConstVal() == true)? 1 : 0);
 			}
 		}
 	}

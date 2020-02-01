@@ -27,6 +27,13 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.loadConst(fac.getCharFactor());
 	}
 	
+	public void visit(FactorBool fac) {
+		if(fac.getBoolFactor() == true)
+			Code.loadConst(1);
+		else
+			Code.loadConst(0);
+	}
+	
 	public void visit(PrintStatementOneArg stm) {
 		if(stm.getExpr().struct == Tab.intType) {
 			Code.put(Code.const_4);
@@ -121,5 +128,27 @@ public class CodeGenerator extends VisitorAdaptor {
 	public void visit(DesignatorIdent des) {
 		if(des.obj.getKind() == Obj.Fld)
 			Code.put(Code.load_n);
+	}
+	
+	public void visit(FactorDesignatorCall fac) {
+		int n = fac.getDesignatorBase().obj.getAdr() - Code.pc;
+		Code.put(Code.call);
+		Code.put2(n);
+	}
+	
+	public void visit(DesignatorCall des) {
+		int n = des.getDesignatorBase().obj.getAdr() - Code.pc;
+		Code.put(Code.call);
+		Code.put2(n);
+	}
+	
+	public void visit(ReturnStatementVoid stm) {
+		Code.put(Code.exit);
+		Code.put(Code.return_);
+	}
+	
+	public void visit(ReturnStatement stm) {
+		Code.put(Code.exit);
+		Code.put(Code.return_);
 	}
 }

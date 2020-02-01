@@ -58,7 +58,7 @@ terminal OP_GREATER, OP_GREATER_EQUAL, OP_LESS, OP_LESS_EQUAL, OP_AND, OP_OR, OP
 terminal OP_RSQUARE, OP_LBRACE, OP_RBRACE;
 terminal String IDENT;
 terminal Integer NUM_CONST;
-terminal BOOL_CONST;
+terminal Boolean BOOL_CONST;
 terminal Character CHAR_CONST;
 
 nonterminal ProgramHeaderDeclList, MethodDeclList, MethodDecl, ConstDeclList, ConstDeclMore, ConstDeclCore;
