@@ -1,0 +1,230 @@
+INFO  21:15:06,333 - Compiling source file: D:\myDesktop\Eclipse vezba\MJCompiler\test\program.mj
+INFO  21:15:06,372 - Program(
+  ProgramName(
+   Micko
+  ) [ProgramName]
+  ProgramHeaderConstDecl(
+    ProgramHeaderVarDecl(
+      ProgramHeaderVarDecl(
+        NoProgramHeaderDecl(
+        ) [NoProgramHeaderDecl]
+        VarDeclBase(
+          Type(
+           int
+          ) [Type]
+          VarDeclArray(
+           a
+          ) [VarDeclArray]
+          NoVarDecl(
+          ) [NoVarDecl]
+        ) [VarDeclBase]
+      ) [ProgramHeaderVarDecl]
+      VarDeclBase(
+        Type(
+         char
+        ) [Type]
+        VarDecl(
+         q
+        ) [VarDecl]
+        NoVarDecl(
+        ) [NoVarDecl]
+      ) [VarDeclBase]
+    ) [ProgramHeaderVarDecl]
+    ConstDeclBase(
+      Type(
+       int
+      ) [Type]
+      ConstDeclNum(
+       ja
+       4
+      ) [ConstDeclNum]
+      NoConstDecl(
+      ) [NoConstDecl]
+    ) [ConstDeclBase]
+  ) [ProgramHeaderConstDecl]
+  MethodList(
+    MethodList(
+      NoMethodList(
+      ) [NoMethodList]
+      MethodDecl(
+        MethodTypeActual(
+          Type(
+           int
+          ) [Type]
+        ) [MethodTypeActual]
+        MethodName(
+         x
+        ) [MethodName]
+        HasFormalParams(
+          FormalParamsNext(
+            FormalParamsNext(
+              FormalParamsFirst(
+                FormalParamSingle(
+                  Type(
+                   char
+                  ) [Type]
+                 ew
+                ) [FormalParamSingle]
+              ) [FormalParamsFirst]
+              FormalParamSingle(
+                Type(
+                 int
+                ) [Type]
+               fgg
+              ) [FormalParamSingle]
+            ) [FormalParamsNext]
+            FormalParamSingle(
+              Type(
+               int
+              ) [Type]
+             l
+            ) [FormalParamSingle]
+          ) [FormalParamsNext]
+        ) [HasFormalParams]
+        VarDeclNo(
+        ) [VarDeclNo]
+        NoStatement(
+        ) [NoStatement]
+      ) [MethodDecl]
+    ) [MethodList]
+    MethodDecl(
+      MethodTypeActual(
+        Type(
+         bool
+        ) [Type]
+      ) [MethodTypeActual]
+      MethodName(
+       s
+      ) [MethodName]
+      NoFormalParams(
+      ) [NoFormalParams]
+      VarDeclYes(
+        MethodVarDeclMultiple(
+          MethodVarDeclSingle(
+            VarDeclBase(
+              Type(
+               int
+              ) [Type]
+              VarDecl(
+               s
+              ) [VarDecl]
+              NoVarDecl(
+              ) [NoVarDecl]
+            ) [VarDeclBase]
+          ) [MethodVarDeclSingle]
+          VarDeclBase(
+            Type(
+             char
+            ) [Type]
+            VarDecl(
+             gh
+            ) [VarDecl]
+            NoVarDecl(
+            ) [NoVarDecl]
+          ) [VarDeclBase]
+        ) [MethodVarDeclMultiple]
+      ) [VarDeclYes]
+      SingleStatement(
+        SingleStatement(
+          NoStatement(
+          ) [NoStatement]
+          DesignatorStatementBase(
+            DesignatorAssign(
+              DesignatorBase(
+                DesignatorIdent(
+                 s
+                ) [DesignatorIdent]
+              ) [DesignatorBase]
+              AssignopDerived1(
+              ) [AssignopDerived1]
+              ExprTerm(
+                TermBase(
+                  FactorDesignator(
+                    DesignatorBase(
+                      DesignatorArray(
+                        DesignatorIdent(
+                         a
+                        ) [DesignatorIdent]
+                        ArrayLoadMarker(
+                        ) [ArrayLoadMarker]
+                        ExprTerm(
+                          TermBase(
+                            FactorNum(
+                             2
+                            ) [FactorNum]
+                          ) [TermBase]
+                        ) [ExprTerm]
+                      ) [DesignatorArray]
+                    ) [DesignatorBase]
+                  ) [FactorDesignator]
+                ) [TermBase]
+              ) [ExprTerm]
+            ) [DesignatorAssign]
+          ) [DesignatorStatementBase]
+        ) [SingleStatement]
+        DesignatorStatementBase(
+          DesignatorAssign(
+            DesignatorBase(
+              DesignatorIdent(
+               q
+              ) [DesignatorIdent]
+            ) [DesignatorBase]
+            AssignopDerived1(
+            ) [AssignopDerived1]
+            ExprTerm(
+              TermBase(
+                FactorDesignatorCall(
+                  DesignatorBase(
+                    DesignatorIdent(
+                     x
+                    ) [DesignatorIdent]
+                  ) [DesignatorBase]
+                  HasActualParams(
+                    ActualParamsMultiple(
+                      ActualParamsMultiple(
+                        ActualParamsSingle(
+                          ExprTerm(
+                            TermBase(
+                              FactorChar(
+                               a
+                              ) [FactorChar]
+                            ) [TermBase]
+                          ) [ExprTerm]
+                        ) [ActualParamsSingle]
+                        ExprTerm(
+                          TermBase(
+                            FactorDesignator(
+                              DesignatorBase(
+                                DesignatorIdent(
+                                 s
+                                ) [DesignatorIdent]
+                              ) [DesignatorBase]
+                            ) [FactorDesignator]
+                          ) [TermBase]
+                        ) [ExprTerm]
+                      ) [ActualParamsMultiple]
+                      ExprTerm(
+                        TermBase(
+                          FactorNum(
+                           2
+                          ) [FactorNum]
+                        ) [TermBase]
+                      ) [ExprTerm]
+                    ) [ActualParamsMultiple]
+                  ) [HasActualParams]
+                ) [FactorDesignatorCall]
+              ) [TermBase]
+            ) [ExprTerm]
+          ) [DesignatorAssign]
+        ) [DesignatorStatementBase]
+      ) [SingleStatement]
+    ) [MethodDecl]
+  ) [MethodList]
+) [Program]
+INFO  21:15:06,373 - ===================================
+INFO  21:15:06,375 - Pravim novi niz sa rs.etf.pp1.symboltable.concepts.Struct@7e6cbb7a
+INFO  21:15:06,376 - 1asd 
+INFO  21:15:06,376 - Fp ove funkcije je 0
+ERROR 21:15:06,376 - Greska pri dodeli vrednosti na liniji 11
+INFO  21:15:06,376 -  Print count calls = 0
+INFO  21:15:06,376 -  Deklarisanih promenljivih ima = 0

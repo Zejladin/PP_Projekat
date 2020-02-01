@@ -1,0 +1,38 @@
+INFO  21:05:26,900 - Compiling source file: D:\myDesktop\Eclipse vezba\MJCompiler\test\program.mj
+INFO  21:05:26,935 - Program(
+  ProgramName(
+   Micko
+  ) [ProgramName]
+  ProgramHeaderVarDecl(
+    ProgramHeaderVarDecl(
+      NoProgramHeaderDecl(
+      ) [NoProgramHeaderDecl]
+      VarDeclBase(
+        Type(
+         int
+        ) [Type]
+        VarDecl(
+         x
+        ) [VarDecl]
+        NoVarDecl(
+        ) [NoVarDecl]
+      ) [VarDeclBase]
+    ) [ProgramHeaderVarDecl]
+    VarDeclBase(
+      Type(
+       char
+      ) [Type]
+      VarDecl(
+       x
+      ) [VarDecl]
+      NoVarDecl(
+      ) [NoVarDecl]
+    ) [VarDeclBase]
+  ) [ProgramHeaderVarDecl]
+  NoMethodList(
+  ) [NoMethodList]
+) [Program]
+INFO  21:05:26,935 - ===================================
+ERROR 21:05:26,937 - Greska, promenljiva sa imenom x vec postoji
+INFO  21:05:26,937 -  Print count calls = 0
+INFO  21:05:26,937 -  Deklarisanih promenljivih ima = 0

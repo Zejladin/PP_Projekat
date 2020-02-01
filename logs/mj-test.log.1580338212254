@@ -1,0 +1,85 @@
+INFO  23:49:28,089 - Compiling source file: D:\myDesktop\Eclipse vezba\MJCompiler\test\program.mj
+INFO  23:49:28,124 - Program(
+  ProgramName(
+   Micko
+  ) [ProgramName]
+  ProgramHeaderVarDecl(
+    NoProgramHeaderDecl(
+    ) [NoProgramHeaderDecl]
+    VarDeclBase(
+      Type(
+       char
+      ) [Type]
+      VarDecl(
+       a
+      ) [VarDecl]
+      NoVarDecl(
+      ) [NoVarDecl]
+    ) [VarDeclBase]
+  ) [ProgramHeaderVarDecl]
+  MethodList(
+    MethodList(
+      NoMethodList(
+      ) [NoMethodList]
+      MethodDecl(
+        MethodTypeActual(
+          Type(
+           int
+          ) [Type]
+        ) [MethodTypeActual]
+        MethodName(
+         x
+        ) [MethodName]
+        NoFormalParams(
+        ) [NoFormalParams]
+        VarDeclNo(
+        ) [VarDeclNo]
+        NoStatement(
+        ) [NoStatement]
+      ) [MethodDecl]
+    ) [MethodList]
+    MethodDecl(
+      MethodTypeActual(
+        Type(
+         int
+        ) [Type]
+      ) [MethodTypeActual]
+      MethodName(
+       s
+      ) [MethodName]
+      NoFormalParams(
+      ) [NoFormalParams]
+      VarDeclYes(
+        MethodVarDeclSingle(
+          VarDeclBase(
+            Type(
+             int
+            ) [Type]
+            VarDecl(
+             s
+            ) [VarDecl]
+            NoVarDecl(
+            ) [NoVarDecl]
+          ) [VarDeclBase]
+        ) [MethodVarDeclSingle]
+      ) [VarDeclYes]
+      SingleStatement(
+        NoStatement(
+        ) [NoStatement]
+        DesignatorStatementBase(
+          DesignatorInc(
+            DesignatorBase(
+              DesignatorIdent(
+               a
+              ) [DesignatorIdent]
+            ) [DesignatorBase]
+          ) [DesignatorInc]
+        ) [DesignatorStatementBase]
+      ) [SingleStatement]
+    ) [MethodDecl]
+  ) [MethodList]
+) [Program]
+INFO  23:49:28,125 - ===================================
+INFO  23:49:28,127 - inkrementiranje za tip rs.etf.pp1.symboltable.concepts.Struct@7e6cbb7a
+INFO  23:49:28,127 -  Print count calls = 0
+INFO  23:49:28,127 -  Deklarisanih promenljivih ima = 0

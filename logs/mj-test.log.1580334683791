@@ -1,0 +1,88 @@
+INFO  22:50:56,787 - Compiling source file: D:\myDesktop\Eclipse vezba\MJCompiler\test\program.mj
+INFO  22:50:56,823 - Program(
+  ProgramName(
+   Micko
+  ) [ProgramName]
+  ProgramHeaderVarDecl(
+    NoProgramHeaderDecl(
+    ) [NoProgramHeaderDecl]
+    VarDeclBase(
+      Type(
+       int
+      ) [Type]
+      VarDecl(
+       a
+      ) [VarDecl]
+      NoVarDecl(
+      ) [NoVarDecl]
+    ) [VarDeclBase]
+  ) [ProgramHeaderVarDecl]
+  MethodList(
+    MethodList(
+      NoMethodList(
+      ) [NoMethodList]
+      MethodDecl(
+        MethodTypeActual(
+          Type(
+           int
+          ) [Type]
+        ) [MethodTypeActual]
+        MethodName(
+         x
+        ) [MethodName]
+        NoFormalParams(
+        ) [NoFormalParams]
+        VarDeclNo(
+        ) [VarDeclNo]
+        NoStatement(
+        ) [NoStatement]
+      ) [MethodDecl]
+    ) [MethodList]
+    MethodDecl(
+      MethodTypeActual(
+        Type(
+         int
+        ) [Type]
+      ) [MethodTypeActual]
+      MethodName(
+       s
+      ) [MethodName]
+      NoFormalParams(
+      ) [NoFormalParams]
+      VarDeclYes(
+        MethodVarDeclSingle(
+          VarDeclBase(
+            Type(
+             int
+            ) [Type]
+            VarDecl(
+             s
+            ) [VarDecl]
+            NoVarDecl(
+            ) [NoVarDecl]
+          ) [VarDeclBase]
+        ) [MethodVarDeclSingle]
+      ) [VarDeclYes]
+      SingleStatement(
+        NoStatement(
+        ) [NoStatement]
+        DesignatorStatementBase(
+          DesignatorCall(
+            DesignatorBase(
+              DesignatorIdent(
+               dj
+              ) [DesignatorIdent]
+            ) [DesignatorBase]
+            NoActualParams(
+            ) [NoActualParams]
+          ) [DesignatorCall]
+        ) [DesignatorStatementBase]
+      ) [SingleStatement]
+    ) [MethodDecl]
+  ) [MethodList]
+) [Program]
+INFO  22:50:56,823 - ===================================
+ERROR 22:50:56,826 - Greska, referencirana varijabla koja ne postoji
+ERROR 22:50:56,826 - Pokusaj pozivanja ne metode!!
+INFO  22:50:56,826 -  Print count calls = 0
+INFO  22:50:56,826 -  Deklarisanih promenljivih ima = 0

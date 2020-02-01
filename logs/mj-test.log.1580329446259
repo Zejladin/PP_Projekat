@@ -1,0 +1,73 @@
+INFO  21:23:43,904 - Compiling source file: D:\myDesktop\Eclipse vezba\MJCompiler\test\program.mj
+INFO  21:23:43,943 - Program(
+  ProgramName(
+   Micko
+  ) [ProgramName]
+  ProgramHeaderVarDecl(
+    NoProgramHeaderDecl(
+    ) [NoProgramHeaderDecl]
+    VarDeclBase(
+      Type(
+       int
+      ) [Type]
+      VarDecl(
+       x
+      ) [VarDecl]
+      NoVarDecl(
+      ) [NoVarDecl]
+    ) [VarDeclBase]
+  ) [ProgramHeaderVarDecl]
+  MethodList(
+    MethodList(
+      NoMethodList(
+      ) [NoMethodList]
+      MethodDecl(
+        MethodTypeActual(
+          Type(
+           int
+          ) [Type]
+        ) [MethodTypeActual]
+        MethodName(
+         s
+        ) [MethodName]
+        NoFormalParams(
+        ) [NoFormalParams]
+        VarDeclNo(
+        ) [VarDeclNo]
+        NoStatement(
+        ) [NoStatement]
+      ) [MethodDecl]
+    ) [MethodList]
+    MethodDecl(
+      MethodTypeActual(
+        Type(
+         int
+        ) [Type]
+      ) [MethodTypeActual]
+      MethodName(
+       main
+      ) [MethodName]
+      NoFormalParams(
+      ) [NoFormalParams]
+      VarDeclYes(
+        MethodVarDeclSingle(
+          VarDeclBase(
+            Type(
+             int
+            ) [Type]
+            VarDecl(
+             s
+            ) [VarDecl]
+            NoVarDecl(
+            ) [NoVarDecl]
+          ) [VarDeclBase]
+        ) [MethodVarDeclSingle]
+      ) [VarDeclYes]
+      NoStatement(
+      ) [NoStatement]
+    ) [MethodDecl]
+  ) [MethodList]
+) [Program]
+INFO  21:23:43,943 - ===================================
+INFO  21:23:43,945 -  Print count calls = 0
+INFO  21:23:43,946 -  Deklarisanih promenljivih ima = 0

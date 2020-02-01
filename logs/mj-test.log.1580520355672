@@ -1,0 +1,149 @@
+INFO  02:25:33,641 - Compiling source file: D:\myDesktop\Eclipse vezba\MJCompiler\test\program.mj
+INFO  02:25:33,678 - Program(
+  ProgramName(
+   Micko
+  ) [ProgramName]
+  ProgramHeaderConstDecl(
+    ProgramHeaderVarDecl(
+      ProgramHeaderVarDecl(
+        NoProgramHeaderDecl(
+        ) [NoProgramHeaderDecl]
+        VarDeclBase(
+          Type(
+           char
+          ) [Type]
+          VarDeclArray(
+           a
+          ) [VarDeclArray]
+          NoVarDecl(
+          ) [NoVarDecl]
+        ) [VarDeclBase]
+      ) [ProgramHeaderVarDecl]
+      VarDeclBase(
+        Type(
+         char
+        ) [Type]
+        VarDecl(
+         q
+        ) [VarDecl]
+        NoVarDecl(
+        ) [NoVarDecl]
+      ) [VarDeclBase]
+    ) [ProgramHeaderVarDecl]
+    ConstDeclBase(
+      Type(
+       int
+      ) [Type]
+      ConstDeclNum(
+       ja
+       14
+      ) [ConstDeclNum]
+      NoConstDecl(
+      ) [NoConstDecl]
+    ) [ConstDeclBase]
+  ) [ProgramHeaderConstDecl]
+  MethodList(
+    NoMethodList(
+    ) [NoMethodList]
+    MethodDecl(
+      MethodTypeActual(
+        Type(
+         int
+        ) [Type]
+      ) [MethodTypeActual]
+      MethodName(
+       s
+      ) [MethodName]
+      NoFormalParams(
+      ) [NoFormalParams]
+      VarDeclYes(
+        MethodVarDeclMultiple(
+          MethodVarDeclSingle(
+            VarDeclBase(
+              Type(
+               int
+              ) [Type]
+              VarDecl(
+               s
+              ) [VarDecl]
+              NoVarDecl(
+              ) [NoVarDecl]
+            ) [VarDeclBase]
+          ) [MethodVarDeclSingle]
+          VarDeclBase(
+            Type(
+             char
+            ) [Type]
+            VarDecl(
+             gh
+            ) [VarDecl]
+            NoVarDecl(
+            ) [NoVarDecl]
+          ) [VarDeclBase]
+        ) [MethodVarDeclMultiple]
+      ) [VarDeclYes]
+      SingleStatement(
+        SingleStatement(
+          SingleStatement(
+            SingleStatement(
+              NoStatement(
+              ) [NoStatement]
+              DesignatorStatementBase(
+                DesignatorAssign(
+                  DesignatorBase(
+                    DesignatorIdent(
+                     s
+                    ) [DesignatorIdent]
+                  ) [DesignatorBase]
+                  AssignopDerived1(
+                  ) [AssignopDerived1]
+                  ExprTerm(
+                    TermBase(
+                      FactorNum(
+                       5
+                      ) [FactorNum]
+                    ) [TermBase]
+                  ) [ExprTerm]
+                ) [DesignatorAssign]
+              ) [DesignatorStatementBase]
+            ) [SingleStatement]
+            PrintStatementOneArg(
+              ExprTerm(
+                TermBase(
+                  FactorDesignator(
+                    DesignatorBase(
+                      DesignatorIdent(
+                       s
+                      ) [DesignatorIdent]
+                    ) [DesignatorBase]
+                  ) [FactorDesignator]
+                ) [TermBase]
+              ) [ExprTerm]
+            ) [PrintStatementOneArg]
+          ) [SingleStatement]
+          PrintStatementOneArg(
+            ExprTerm(
+              TermBase(
+                FactorChar(
+                 d
+                ) [FactorChar]
+              ) [TermBase]
+            ) [ExprTerm]
+          ) [PrintStatementOneArg]
+        ) [SingleStatement]
+        ReturnStatement(
+          ExprTerm(
+            TermBase(
+              FactorNum(
+               0
+              ) [FactorNum]
+            ) [TermBase]
+          ) [ExprTerm]
+        ) [ReturnStatement]
+      ) [SingleStatement]
+    ) [MethodDecl]
+  ) [MethodList]
+) [Program]
+INFO  02:25:33,679 - ===================================
+INFO  02:25:33,681 - Pravim novi niz sa rs.etf.pp1.symboltable.concepts.Struct@7e6cbb7a
+INFO  02:25:33,682 - Pocinjemo sa generisanjem koda!

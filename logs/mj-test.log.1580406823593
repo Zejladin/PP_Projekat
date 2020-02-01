@@ -1,0 +1,94 @@
+INFO  00:14:29,967 - Compiling source file: D:\myDesktop\Eclipse vezba\MJCompiler\test\program.mj
+INFO  00:14:30,006 - Program(
+  ProgramName(
+   Micko
+  ) [ProgramName]
+  ProgramHeaderVarDecl(
+    NoProgramHeaderDecl(
+    ) [NoProgramHeaderDecl]
+    VarDeclBase(
+      Type(
+       int
+      ) [Type]
+      VarDecl(
+       a
+      ) [VarDecl]
+      NoVarDecl(
+      ) [NoVarDecl]
+    ) [VarDeclBase]
+  ) [ProgramHeaderVarDecl]
+  MethodList(
+    MethodList(
+      NoMethodList(
+      ) [NoMethodList]
+      MethodDecl(
+        MethodTypeActual(
+          Type(
+           int
+          ) [Type]
+        ) [MethodTypeActual]
+        MethodName(
+         x
+        ) [MethodName]
+        NoFormalParams(
+        ) [NoFormalParams]
+        VarDeclNo(
+        ) [VarDeclNo]
+        NoStatement(
+        ) [NoStatement]
+      ) [MethodDecl]
+    ) [MethodList]
+    MethodDecl(
+      MethodTypeActual(
+        Type(
+         int
+        ) [Type]
+      ) [MethodTypeActual]
+      MethodName(
+       s
+      ) [MethodName]
+      NoFormalParams(
+      ) [NoFormalParams]
+      VarDeclYes(
+        MethodVarDeclSingle(
+          VarDeclBase(
+            Type(
+             int
+            ) [Type]
+            VarDecl(
+             s
+            ) [VarDecl]
+            NoVarDecl(
+            ) [NoVarDecl]
+          ) [VarDeclBase]
+        ) [MethodVarDeclSingle]
+      ) [VarDeclYes]
+      SingleStatement(
+        NoStatement(
+        ) [NoStatement]
+        DesignatorStatementBase(
+          DesignatorAssign(
+            DesignatorBase(
+              DesignatorIdent(
+               a
+              ) [DesignatorIdent]
+            ) [DesignatorBase]
+            AssignopDerived1(
+            ) [AssignopDerived1]
+            ExprTerm(
+              TermBase(
+                FactorNum(
+                 45
+                ) [FactorNum]
+              ) [TermBase]
+            ) [ExprTerm]
+          ) [DesignatorAssign]
+        ) [DesignatorStatementBase]
+      ) [SingleStatement]
+    ) [MethodDecl]
+  ) [MethodList]
+) [Program]
+INFO  00:14:30,006 - ===================================
+ERROR 00:14:30,008 - Greska pri dodeli vrednosti
+INFO  00:14:30,009 -  Print count calls = 0
+INFO  00:14:30,009 -  Deklarisanih promenljivih ima = 0
