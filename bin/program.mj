@@ -6,10 +6,12 @@ const bool d = true;
 const int ja = 14;
 
 {
+
 	int main() char gh; int s; {
 		
-		read(q);
-		print(q);
+		if(3<5 && 4 > 2)
+			print(2);
+		print(8);
 		
 		
 		return 0;

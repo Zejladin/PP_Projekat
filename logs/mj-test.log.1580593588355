@@ -1,0 +1,200 @@
+INFO  22:17:41,635 - Compiling source file: D:\myDesktop\Eclipse vezba\MJCompiler\test\program.mj
+INFO  22:17:41,672 - Program(
+  ProgramName(
+   Micko
+  ) [ProgramName]
+  ProgramHeaderConstDecl(
+    ProgramHeaderConstDecl(
+      ProgramHeaderVarDecl(
+        ProgramHeaderVarDecl(
+          NoProgramHeaderDecl(
+          ) [NoProgramHeaderDecl]
+          VarDeclBase(
+            Type(
+             int
+            ) [Type]
+            VarDeclArray(
+             a
+            ) [VarDeclArray]
+            NoVarDecl(
+            ) [NoVarDecl]
+          ) [VarDeclBase]
+        ) [ProgramHeaderVarDecl]
+        VarDeclBase(
+          Type(
+           char
+          ) [Type]
+          VarDecl(
+           q
+          ) [VarDecl]
+          NoVarDecl(
+          ) [NoVarDecl]
+        ) [VarDeclBase]
+      ) [ProgramHeaderVarDecl]
+      ConstDeclBase(
+        Type(
+         bool
+        ) [Type]
+        ConstDeclBool(
+         d
+        ) [ConstDeclBool]
+        NoConstDecl(
+        ) [NoConstDecl]
+      ) [ConstDeclBase]
+    ) [ProgramHeaderConstDecl]
+    ConstDeclBase(
+      Type(
+       int
+      ) [Type]
+      ConstDeclNum(
+       ja
+       14
+      ) [ConstDeclNum]
+      NoConstDecl(
+      ) [NoConstDecl]
+    ) [ConstDeclBase]
+  ) [ProgramHeaderConstDecl]
+  MethodList(
+    MethodList(
+      NoMethodList(
+      ) [NoMethodList]
+      MethodDecl(
+        MethodTypeActual(
+          Type(
+           int
+          ) [Type]
+        ) [MethodTypeActual]
+        MethodName(
+         metod
+        ) [MethodName]
+        HasFormalParams(
+          FormalParamsNext(
+            FormalParamsFirst(
+              FormalParamSingle(
+                Type(
+                 int
+                ) [Type]
+               x
+              ) [FormalParamSingle]
+            ) [FormalParamsFirst]
+            FormalParamSingle(
+              Type(
+               int
+              ) [Type]
+             y
+            ) [FormalParamSingle]
+          ) [FormalParamsNext]
+        ) [HasFormalParams]
+        VarDeclNo(
+        ) [VarDeclNo]
+        SingleStatement(
+          NoStatement(
+          ) [NoStatement]
+          ReturnStatement(
+            ExprTerm(
+              TermBase(
+                FactorDesignator(
+                  DesignatorBase(
+                    DesignatorIdent(
+                     x
+                    ) [DesignatorIdent]
+                  ) [DesignatorBase]
+                ) [FactorDesignator]
+              ) [TermBase]
+            ) [ExprTerm]
+          ) [ReturnStatement]
+        ) [SingleStatement]
+      ) [MethodDecl]
+    ) [MethodList]
+    MethodDecl(
+      MethodTypeActual(
+        Type(
+         int
+        ) [Type]
+      ) [MethodTypeActual]
+      MethodName(
+       main
+      ) [MethodName]
+      NoFormalParams(
+      ) [NoFormalParams]
+      VarDeclYes(
+        MethodVarDeclMultiple(
+          MethodVarDeclSingle(
+            VarDeclBase(
+              Type(
+               char
+              ) [Type]
+              VarDecl(
+               gh
+              ) [VarDecl]
+              NoVarDecl(
+              ) [NoVarDecl]
+            ) [VarDeclBase]
+          ) [MethodVarDeclSingle]
+          VarDeclBase(
+            Type(
+             int
+            ) [Type]
+            VarDecl(
+             s
+            ) [VarDecl]
+            NoVarDecl(
+            ) [NoVarDecl]
+          ) [VarDeclBase]
+        ) [MethodVarDeclMultiple]
+      ) [VarDeclYes]
+      SingleStatement(
+        SingleStatement(
+          NoStatement(
+          ) [NoStatement]
+          PrintStatementOneArg(
+            ExprTerm(
+              TermBase(
+                FactorDesignatorCall(
+                  DesignatorBase(
+                    DesignatorIdent(
+                     metod
+                    ) [DesignatorIdent]
+                  ) [DesignatorBase]
+                  HasActualParams(
+                    ActualParamsMultiple(
+                      ActualParamsSingle(
+                        ExprTerm(
+                          TermBase(
+                            FactorNum(
+                             4
+                            ) [FactorNum]
+                          ) [TermBase]
+                        ) [ExprTerm]
+                      ) [ActualParamsSingle]
+                      ExprTerm(
+                        TermBase(
+                          FactorNum(
+                           5
+                          ) [FactorNum]
+                        ) [TermBase]
+                      ) [ExprTerm]
+                    ) [ActualParamsMultiple]
+                  ) [HasActualParams]
+                ) [FactorDesignatorCall]
+              ) [TermBase]
+            ) [ExprTerm]
+          ) [PrintStatementOneArg]
+        ) [SingleStatement]
+        ReturnStatement(
+          ExprTerm(
+            TermBase(
+              FactorNum(
+               0
+              ) [FactorNum]
+            ) [TermBase]
+          ) [ExprTerm]
+        ) [ReturnStatement]
+      ) [SingleStatement]
+    ) [MethodDecl]
+  ) [MethodList]
+) [Program]
+INFO  22:17:41,765 - ===================================
+INFO  22:17:41,776 - Pravim novi niz tipa rs.ac.bg.etf.pp1.ast.Type@2e817b38 na liniji 3
+INFO  22:17:41,779 - Fp ove funkcije je 0
+INFO  22:17:41,780 - Pocinjemo sa generisanjem koda!

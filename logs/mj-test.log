@@ -1,5 +1,5 @@
-INFO  22:09:15,552 - Compiling source file: D:\myDesktop\Eclipse vezba\MJCompiler\test\program.mj
-INFO  22:09:15,591 - Program(
+INFO  19:12:13,552 - Compiling source file: D:\myDesktop\Eclipse vezba\MJCompiler\test\program.mj
+INFO  19:12:13,606 - Program(
   ProgramName(
    Micko
   ) [ProgramName]
@@ -55,70 +55,8 @@ INFO  22:09:15,591 - Program(
     ) [ConstDeclBase]
   ) [ProgramHeaderConstDecl]
   MethodList(
-    MethodList(
-      NoMethodList(
-      ) [NoMethodList]
-      MethodDecl(
-        MethodTypeActual(
-          Type(
-           int
-          ) [Type]
-        ) [MethodTypeActual]
-        MethodName(
-         metod
-        ) [MethodName]
-        HasFormalParams(
-          FormalParamsNext(
-            FormalParamsFirst(
-              FormalParamSingle(
-                Type(
-                 int
-                ) [Type]
-               x
-              ) [FormalParamSingle]
-            ) [FormalParamsFirst]
-            FormalParamSingle(
-              Type(
-               int
-              ) [Type]
-             y
-            ) [FormalParamSingle]
-          ) [FormalParamsNext]
-        ) [HasFormalParams]
-        VarDeclNo(
-        ) [VarDeclNo]
-        SingleStatement(
-          NoStatement(
-          ) [NoStatement]
-          ReturnStatement(
-            ExprList(
-              ExprTerm(
-                TermBase(
-                  FactorDesignator(
-                    DesignatorBase(
-                      DesignatorIdent(
-                       x
-                      ) [DesignatorIdent]
-                    ) [DesignatorBase]
-                  ) [FactorDesignator]
-                ) [TermBase]
-              ) [ExprTerm]
-              AddopAdd(
-              ) [AddopAdd]
-              TermBase(
-                FactorDesignator(
-                  DesignatorBase(
-                    DesignatorIdent(
-                     y
-                    ) [DesignatorIdent]
-                  ) [DesignatorBase]
-                ) [FactorDesignator]
-              ) [TermBase]
-            ) [ExprList]
-          ) [ReturnStatement]
-        ) [SingleStatement]
-      ) [MethodDecl]
-    ) [MethodList]
+    NoMethodList(
+    ) [NoMethodList]
     MethodDecl(
       MethodTypeActual(
         Type(
@@ -135,7 +73,7 @@ INFO  22:09:15,591 - Program(
           MethodVarDeclSingle(
             VarDeclBase(
               Type(
-               char
+               int
               ) [Type]
               VarDecl(
                gh
@@ -158,41 +96,218 @@ INFO  22:09:15,591 - Program(
       ) [VarDeclYes]
       SingleStatement(
         SingleStatement(
-          NoStatement(
-          ) [NoStatement]
-          PrintStatementOneArg(
-            ExprTerm(
-              TermBase(
-                FactorDesignatorCall(
-                  DesignatorBase(
-                    DesignatorIdent(
-                     metod
-                    ) [DesignatorIdent]
-                  ) [DesignatorBase]
-                  HasActualParams(
-                    ActualParamsMultiple(
-                      ActualParamsSingle(
+          SingleStatement(
+            NoStatement(
+            ) [NoStatement]
+            DesignatorStatementBase(
+              DesignatorAssign(
+                DesignatorBase(
+                  DesignatorIdent(
+                   s
+                  ) [DesignatorIdent]
+                ) [DesignatorBase]
+                AssignopDerived1(
+                ) [AssignopDerived1]
+                ExprTerm(
+                  TermBase(
+                    FactorNum(
+                     10
+                    ) [FactorNum]
+                  ) [TermBase]
+                ) [ExprTerm]
+              ) [DesignatorAssign]
+            ) [DesignatorStatementBase]
+          ) [SingleStatement]
+          ForStatement(
+            ForStartMarker(
+            ) [ForStartMarker]
+            ForInit(
+              DesignatorAssign(
+                DesignatorBase(
+                  DesignatorIdent(
+                   gh
+                  ) [DesignatorIdent]
+                ) [DesignatorBase]
+                AssignopDerived1(
+                ) [AssignopDerived1]
+                ExprTerm(
+                  TermBase(
+                    FactorNum(
+                     0
+                    ) [FactorNum]
+                  ) [TermBase]
+                ) [ExprTerm]
+              ) [DesignatorAssign]
+            ) [ForInit]
+            ForCond(
+              ConditionList(
+                ConditionList(
+                  ConditionBase(
+                    CondTermBase(
+                      CondFactRel(
+                        ExprTerm(
+                          TermBase(
+                            FactorDesignator(
+                              DesignatorBase(
+                                DesignatorIdent(
+                                 gh
+                                ) [DesignatorIdent]
+                              ) [DesignatorBase]
+                            ) [FactorDesignator]
+                          ) [TermBase]
+                        ) [ExprTerm]
+                        RelopLessThan(
+                        ) [RelopLessThan]
                         ExprTerm(
                           TermBase(
                             FactorNum(
-                             4
+                             3
                             ) [FactorNum]
                           ) [TermBase]
                         ) [ExprTerm]
-                      ) [ActualParamsSingle]
+                      ) [CondFactRel]
+                    ) [CondTermBase]
+                  ) [ConditionBase]
+                  CondTermBase(
+                    CondFactRel(
+                      ExprTerm(
+                        TermBase(
+                          FactorDesignator(
+                            DesignatorBase(
+                              DesignatorIdent(
+                               s
+                              ) [DesignatorIdent]
+                            ) [DesignatorBase]
+                          ) [FactorDesignator]
+                        ) [TermBase]
+                      ) [ExprTerm]
+                      RelopGreaterThan(
+                      ) [RelopGreaterThan]
                       ExprTerm(
                         TermBase(
                           FactorNum(
-                           5
+                           0
                           ) [FactorNum]
                         ) [TermBase]
                       ) [ExprTerm]
-                    ) [ActualParamsMultiple]
-                  ) [HasActualParams]
-                ) [FactorDesignatorCall]
-              ) [TermBase]
-            ) [ExprTerm]
-          ) [PrintStatementOneArg]
+                    ) [CondFactRel]
+                  ) [CondTermBase]
+                ) [ConditionList]
+                CondTermBase(
+                  CondFactRel(
+                    ExprTerm(
+                      TermBase(
+                        FactorDesignator(
+                          DesignatorBase(
+                            DesignatorArray(
+                              DesignatorIdent(
+                               a
+                              ) [DesignatorIdent]
+                              ArrayLoadMarker(
+                              ) [ArrayLoadMarker]
+                              ExprTerm(
+                                TermBase(
+                                  FactorNum(
+                                   1
+                                  ) [FactorNum]
+                                ) [TermBase]
+                              ) [ExprTerm]
+                            ) [DesignatorArray]
+                          ) [DesignatorBase]
+                        ) [FactorDesignator]
+                      ) [TermBase]
+                    ) [ExprTerm]
+                    RelopGreaterThan(
+                    ) [RelopGreaterThan]
+                    ExprTerm(
+                      TermBase(
+                        FactorNum(
+                         2
+                        ) [FactorNum]
+                      ) [TermBase]
+                    ) [ExprTerm]
+                  ) [CondFactRel]
+                ) [CondTermBase]
+              ) [ConditionList]
+            ) [ForCond]
+            ForStep(
+              DesignatorInc(
+                DesignatorBase(
+                  DesignatorIdent(
+                   gh
+                  ) [DesignatorIdent]
+                ) [DesignatorBase]
+              ) [DesignatorInc]
+            ) [ForStep]
+            ForStatementMarker(
+            ) [ForStatementMarker]
+            MultipleStatements(
+              SingleStatement(
+                SingleStatement(
+                  SingleStatement(
+                    NoStatement(
+                    ) [NoStatement]
+                    ConditionalStatement(
+                      IfStatement(
+                        IfStartMarkerCond(
+                          ConditionBase(
+                            CondTermBase(
+                              CondFactRel(
+                                ExprTerm(
+                                  TermBase(
+                                    FactorDesignator(
+                                      DesignatorBase(
+                                        DesignatorIdent(
+                                         gh
+                                        ) [DesignatorIdent]
+                                      ) [DesignatorBase]
+                                    ) [FactorDesignator]
+                                  ) [TermBase]
+                                ) [ExprTerm]
+                                RelopEquals(
+                                ) [RelopEquals]
+                                ExprTerm(
+                                  TermBase(
+                                    FactorNum(
+                                     4
+                                    ) [FactorNum]
+                                  ) [TermBase]
+                                ) [ExprTerm]
+                              ) [CondFactRel]
+                            ) [CondTermBase]
+                          ) [ConditionBase]
+                        ) [IfStartMarkerCond]
+                        ContinueStatement(
+                        ) [ContinueStatement]
+                      ) [IfStatement]
+                    ) [ConditionalStatement]
+                  ) [SingleStatement]
+                  PrintStatementOneArg(
+                    ExprTerm(
+                      TermBase(
+                        FactorDesignator(
+                          DesignatorBase(
+                            DesignatorIdent(
+                             gh
+                            ) [DesignatorIdent]
+                          ) [DesignatorBase]
+                        ) [FactorDesignator]
+                      ) [TermBase]
+                    ) [ExprTerm]
+                  ) [PrintStatementOneArg]
+                ) [SingleStatement]
+                DesignatorStatementBase(
+                  DesignatorDec(
+                    DesignatorBase(
+                      DesignatorIdent(
+                       s
+                      ) [DesignatorIdent]
+                    ) [DesignatorBase]
+                  ) [DesignatorDec]
+                ) [DesignatorStatementBase]
+              ) [SingleStatement]
+            ) [MultipleStatements]
+          ) [ForStatement]
         ) [SingleStatement]
         ReturnStatement(
           ExprTerm(
@@ -207,7 +322,11 @@ INFO  22:09:15,591 - Program(
     ) [MethodDecl]
   ) [MethodList]
 ) [Program]
-INFO  22:09:15,592 - ===================================
-INFO  22:09:15,594 - Pravim novi niz tipa rs.ac.bg.etf.pp1.ast.Type@4d405ef7 na liniji 3
-INFO  22:09:15,595 - Fp ove funkcije je 0
-INFO  22:09:15,595 - Pocinjemo sa generisanjem koda!
+INFO  19:12:13,615 - ===================================
+INFO  19:12:13,623 - Pravim novi niz tipa rs.ac.bg.etf.pp1.ast.Type@2e817b38 na liniji 3
+INFO  19:12:13,627 - rs.etf.pp1.symboltable.concepts.Struct@c4437c4
+INFO  19:12:13,627 - rs.etf.pp1.symboltable.concepts.Struct@c4437c4
+INFO  19:12:13,630 - rs.etf.pp1.symboltable.concepts.Struct@c4437c4
+INFO  19:12:13,630 - rs.etf.pp1.symboltable.concepts.Struct@c4437c4
+INFO  19:12:13,630 - 1asd 
+INFO  19:12:13,630 - Pocinjemo sa generisanjem koda!

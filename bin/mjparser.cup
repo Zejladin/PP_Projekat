@@ -62,7 +62,7 @@ terminal Boolean BOOL_CONST;
 terminal Character CHAR_CONST;
 
 nonterminal ProgramHeaderDeclList, MethodDeclList, MethodDecl, ConstDeclList, ConstDeclMore, ConstDeclCore;
-nonterminal VarDeclList, VarDeclMore, VarDeclChoice;
+nonterminal VarDeclCore, VarDeclList, VarDeclMore, VarDeclChoice;
 nonterminal FormalParams, FormalParam;
 nonterminal Statement, StatementList, CondStatement;
 nonterminal Assignop, Relop, Addop, Mulop;
@@ -84,12 +84,11 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj DesignatorBase;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Term;
-nonterminal IfStartMarker;
-nonterminal VarDeclCore;
-nonterminal Condition;
-nonterminal CondFact;
-nonterminal CondTerm;
-nonterminal IfElseMarker;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj IfStartMarker;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct CondFact;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct CondTerm;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj IfElseMarker;
 nonterminal ForCondPart;
 nonterminal ForInitPart;
 

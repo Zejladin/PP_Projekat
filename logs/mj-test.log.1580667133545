@@ -1,0 +1,332 @@
+INFO  19:12:02,232 - Compiling source file: D:\myDesktop\Eclipse vezba\MJCompiler\test\program.mj
+INFO  19:12:02,291 - Program(
+  ProgramName(
+   Micko
+  ) [ProgramName]
+  ProgramHeaderConstDecl(
+    ProgramHeaderConstDecl(
+      ProgramHeaderVarDecl(
+        ProgramHeaderVarDecl(
+          NoProgramHeaderDecl(
+          ) [NoProgramHeaderDecl]
+          VarDeclBase(
+            Type(
+             int
+            ) [Type]
+            VarDeclArray(
+             a
+            ) [VarDeclArray]
+            NoVarDecl(
+            ) [NoVarDecl]
+          ) [VarDeclBase]
+        ) [ProgramHeaderVarDecl]
+        VarDeclBase(
+          Type(
+           char
+          ) [Type]
+          VarDecl(
+           q
+          ) [VarDecl]
+          NoVarDecl(
+          ) [NoVarDecl]
+        ) [VarDeclBase]
+      ) [ProgramHeaderVarDecl]
+      ConstDeclBase(
+        Type(
+         bool
+        ) [Type]
+        ConstDeclBool(
+         d
+        ) [ConstDeclBool]
+        NoConstDecl(
+        ) [NoConstDecl]
+      ) [ConstDeclBase]
+    ) [ProgramHeaderConstDecl]
+    ConstDeclBase(
+      Type(
+       int
+      ) [Type]
+      ConstDeclNum(
+       ja
+       14
+      ) [ConstDeclNum]
+      NoConstDecl(
+      ) [NoConstDecl]
+    ) [ConstDeclBase]
+  ) [ProgramHeaderConstDecl]
+  MethodList(
+    NoMethodList(
+    ) [NoMethodList]
+    MethodDecl(
+      MethodTypeActual(
+        Type(
+         int
+        ) [Type]
+      ) [MethodTypeActual]
+      MethodName(
+       main
+      ) [MethodName]
+      NoFormalParams(
+      ) [NoFormalParams]
+      VarDeclYes(
+        MethodVarDeclMultiple(
+          MethodVarDeclSingle(
+            VarDeclBase(
+              Type(
+               int
+              ) [Type]
+              VarDecl(
+               gh
+              ) [VarDecl]
+              NoVarDecl(
+              ) [NoVarDecl]
+            ) [VarDeclBase]
+          ) [MethodVarDeclSingle]
+          VarDeclBase(
+            Type(
+             int
+            ) [Type]
+            VarDecl(
+             s
+            ) [VarDecl]
+            NoVarDecl(
+            ) [NoVarDecl]
+          ) [VarDeclBase]
+        ) [MethodVarDeclMultiple]
+      ) [VarDeclYes]
+      SingleStatement(
+        SingleStatement(
+          SingleStatement(
+            NoStatement(
+            ) [NoStatement]
+            DesignatorStatementBase(
+              DesignatorAssign(
+                DesignatorBase(
+                  DesignatorIdent(
+                   s
+                  ) [DesignatorIdent]
+                ) [DesignatorBase]
+                AssignopDerived1(
+                ) [AssignopDerived1]
+                ExprTerm(
+                  TermBase(
+                    FactorNum(
+                     10
+                    ) [FactorNum]
+                  ) [TermBase]
+                ) [ExprTerm]
+              ) [DesignatorAssign]
+            ) [DesignatorStatementBase]
+          ) [SingleStatement]
+          ForStatement(
+            ForStartMarker(
+            ) [ForStartMarker]
+            ForInit(
+              DesignatorAssign(
+                DesignatorBase(
+                  DesignatorIdent(
+                   gh
+                  ) [DesignatorIdent]
+                ) [DesignatorBase]
+                AssignopDerived1(
+                ) [AssignopDerived1]
+                ExprTerm(
+                  TermBase(
+                    FactorNum(
+                     0
+                    ) [FactorNum]
+                  ) [TermBase]
+                ) [ExprTerm]
+              ) [DesignatorAssign]
+            ) [ForInit]
+            ForCond(
+              ConditionList(
+                ConditionList(
+                  ConditionBase(
+                    CondTermBase(
+                      CondFactRel(
+                        ExprTerm(
+                          TermBase(
+                            FactorDesignator(
+                              DesignatorBase(
+                                DesignatorIdent(
+                                 gh
+                                ) [DesignatorIdent]
+                              ) [DesignatorBase]
+                            ) [FactorDesignator]
+                          ) [TermBase]
+                        ) [ExprTerm]
+                        RelopLessThan(
+                        ) [RelopLessThan]
+                        ExprTerm(
+                          TermBase(
+                            FactorNum(
+                             3
+                            ) [FactorNum]
+                          ) [TermBase]
+                        ) [ExprTerm]
+                      ) [CondFactRel]
+                    ) [CondTermBase]
+                  ) [ConditionBase]
+                  CondTermBase(
+                    CondFactRel(
+                      ExprTerm(
+                        TermBase(
+                          FactorDesignator(
+                            DesignatorBase(
+                              DesignatorIdent(
+                               s
+                              ) [DesignatorIdent]
+                            ) [DesignatorBase]
+                          ) [FactorDesignator]
+                        ) [TermBase]
+                      ) [ExprTerm]
+                      RelopGreaterThan(
+                      ) [RelopGreaterThan]
+                      ExprTerm(
+                        TermBase(
+                          FactorNum(
+                           0
+                          ) [FactorNum]
+                        ) [TermBase]
+                      ) [ExprTerm]
+                    ) [CondFactRel]
+                  ) [CondTermBase]
+                ) [ConditionList]
+                CondTermBase(
+                  CondFactRel(
+                    ExprTerm(
+                      TermBase(
+                        FactorDesignator(
+                          DesignatorBase(
+                            DesignatorArray(
+                              DesignatorIdent(
+                               a
+                              ) [DesignatorIdent]
+                              ArrayLoadMarker(
+                              ) [ArrayLoadMarker]
+                              ExprTerm(
+                                TermBase(
+                                  FactorNum(
+                                   1
+                                  ) [FactorNum]
+                                ) [TermBase]
+                              ) [ExprTerm]
+                            ) [DesignatorArray]
+                          ) [DesignatorBase]
+                        ) [FactorDesignator]
+                      ) [TermBase]
+                    ) [ExprTerm]
+                    RelopGreaterThan(
+                    ) [RelopGreaterThan]
+                    ExprTerm(
+                      TermBase(
+                        FactorNum(
+                         2
+                        ) [FactorNum]
+                      ) [TermBase]
+                    ) [ExprTerm]
+                  ) [CondFactRel]
+                ) [CondTermBase]
+              ) [ConditionList]
+            ) [ForCond]
+            ForStep(
+              DesignatorInc(
+                DesignatorBase(
+                  DesignatorIdent(
+                   gh
+                  ) [DesignatorIdent]
+                ) [DesignatorBase]
+              ) [DesignatorInc]
+            ) [ForStep]
+            ForStatementMarker(
+            ) [ForStatementMarker]
+            MultipleStatements(
+              SingleStatement(
+                SingleStatement(
+                  SingleStatement(
+                    NoStatement(
+                    ) [NoStatement]
+                    ConditionalStatement(
+                      IfStatement(
+                        IfStartMarkerCond(
+                          ConditionBase(
+                            CondTermBase(
+                              CondFactRel(
+                                ExprTerm(
+                                  TermBase(
+                                    FactorDesignator(
+                                      DesignatorBase(
+                                        DesignatorIdent(
+                                         gh
+                                        ) [DesignatorIdent]
+                                      ) [DesignatorBase]
+                                    ) [FactorDesignator]
+                                  ) [TermBase]
+                                ) [ExprTerm]
+                                RelopEquals(
+                                ) [RelopEquals]
+                                ExprTerm(
+                                  TermBase(
+                                    FactorNum(
+                                     4
+                                    ) [FactorNum]
+                                  ) [TermBase]
+                                ) [ExprTerm]
+                              ) [CondFactRel]
+                            ) [CondTermBase]
+                          ) [ConditionBase]
+                        ) [IfStartMarkerCond]
+                        BreakStatement(
+                        ) [BreakStatement]
+                      ) [IfStatement]
+                    ) [ConditionalStatement]
+                  ) [SingleStatement]
+                  PrintStatementOneArg(
+                    ExprTerm(
+                      TermBase(
+                        FactorDesignator(
+                          DesignatorBase(
+                            DesignatorIdent(
+                             gh
+                            ) [DesignatorIdent]
+                          ) [DesignatorBase]
+                        ) [FactorDesignator]
+                      ) [TermBase]
+                    ) [ExprTerm]
+                  ) [PrintStatementOneArg]
+                ) [SingleStatement]
+                DesignatorStatementBase(
+                  DesignatorDec(
+                    DesignatorBase(
+                      DesignatorIdent(
+                       s
+                      ) [DesignatorIdent]
+                    ) [DesignatorBase]
+                  ) [DesignatorDec]
+                ) [DesignatorStatementBase]
+              ) [SingleStatement]
+            ) [MultipleStatements]
+          ) [ForStatement]
+        ) [SingleStatement]
+        ReturnStatement(
+          ExprTerm(
+            TermBase(
+              FactorNum(
+               0
+              ) [FactorNum]
+            ) [TermBase]
+          ) [ExprTerm]
+        ) [ReturnStatement]
+      ) [SingleStatement]
+    ) [MethodDecl]
+  ) [MethodList]
+) [Program]
+INFO  19:12:02,336 - ===================================
+INFO  19:12:02,338 - Pravim novi niz tipa rs.ac.bg.etf.pp1.ast.Type@2e817b38 na liniji 3
+INFO  19:12:02,339 - rs.etf.pp1.symboltable.concepts.Struct@c4437c4
+INFO  19:12:02,339 - rs.etf.pp1.symboltable.concepts.Struct@c4437c4
+INFO  19:12:02,339 - rs.etf.pp1.symboltable.concepts.Struct@c4437c4
+INFO  19:12:02,339 - rs.etf.pp1.symboltable.concepts.Struct@c4437c4
+INFO  19:12:02,339 - 1asd 
+INFO  19:12:02,340 - Pocinjemo sa generisanjem koda!

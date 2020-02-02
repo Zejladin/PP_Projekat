@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 1/1/2020 21:41:16
+// 2/1/2020 0:4:59
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -13,7 +13,7 @@ public class ConstDeclBool extends ConstDeclCore {
     public ConstDeclBool (String constIdentifier, Boolean constVal) {
         this.constIdentifier=constIdentifier;
         this.constVal=constVal;
-       // if(constVal!=null) constVal.setParent(this);
+      //  if(constVal!=null) constVal.setParent(this);
     }
 
     public String getConstIdentifier() {
@@ -37,16 +37,16 @@ public class ConstDeclBool extends ConstDeclCore {
     }
 
     public void childrenAccept(Visitor visitor) {
-       // if(constVal!=null) constVal.accept(visitor);
+        //if(constVal!=null) constVal.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-      //  if(constVal!=null) constVal.traverseTopDown(visitor);
+        //if(constVal!=null) constVal.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-      //  if(constVal!=null) constVal.traverseBottomUp(visitor);
+       // if(constVal!=null) constVal.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -58,12 +58,12 @@ public class ConstDeclBool extends ConstDeclCore {
         buffer.append(" "+tab+constIdentifier);
         buffer.append("\n");
 
-        /*if(constVal!=null)
-          //  buffer.append(constVal.toString("  "+tab));
+       /* if(constVal!=null)
+            buffer.append(constVal.toString("  "+tab));
         else
             buffer.append(tab+"  null");
-        buffer.append("\n");*/
-
+        buffer.append("\n");
+		*/
         buffer.append(tab);
         buffer.append(") [ConstDeclBool]");
         return buffer.toString();

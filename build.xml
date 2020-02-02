@@ -59,7 +59,16 @@
 		</javac>
 	</target>
 
-	<target name="disasm">
+	<target name="test">
+		<java classname="rs.ac.bg.etf.pp1.MJParserTest" classpath="bin/" fork="true">
+			<classpath>
+				<fileset dir="lib/">
+				</fileset>
+			</classpath>
+		</java>
+	</target>
+	
+	<target name="disasm" depends="test">
 			<java classname="rs.etf.pp1.mj.runtime.disasm">
 				<arg value="test/program.obj"/>
 				<classpath>
