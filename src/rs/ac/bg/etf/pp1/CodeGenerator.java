@@ -328,7 +328,18 @@ public class CodeGenerator extends VisitorAdaptor {
 		forStep.push(Code.pc);
 	}
 	
+	public void visit(NoForCond forCond) {
+		Code.put(Code.jmp);
+		Code.put2(0);
+		forStm.push(Code.pc - 2);
+		forStep.push(Code.pc);
+	}
+	
 	public void visit(ForStep step) {
+		Code.putJump(forCond.pop());
+	}
+	
+	public void visit(NoForStep step) {
 		Code.putJump(forCond.pop());
 	}
 	
@@ -366,5 +377,28 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.put2(0);
 		continueStack.peek().add(Code.pc - 2);
 	}
+	
+	public void visit(ProgramName program){
+        Obj chr = Tab.find("chr");
+        chr.setAdr(Code.pc);
+        Code.put(Code.return_);
+        Obj ord = Tab.find("ord");
+        ord.setAdr(Code.pc);
+        Code.put(Code.return_);
+        Obj len = Tab.find("len");
+        len.setAdr(Code.pc);
+        Code.put(Code.enter);
+        Code.put(1);
+        Code.put(1);
+        Code.put(Code.load);
+        Code.put(0);
+        Code.loadConst(1);
+        Code.put(Code.sub);
+        Code.put(Code.getfield);
+        Code.put2(0);
+        Code.put(Code.exit);
+        Code.put(Code.return_);
+    }
+
 	
 }
